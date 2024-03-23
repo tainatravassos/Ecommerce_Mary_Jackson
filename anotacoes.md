@@ -1,6 +1,9 @@
         O que já foi feito:
 Criação do projeto:django-admin startproject projeto_ecommerce .
-py manage.py startapp app_MJ
+Criação do app: py manage.py startapp app_MJ
+Criação do db.sqlite e manage.py : py manage.py migrate
+
+
 
 
         O que você deve fazer ao entrar no projeto pela primeira vez:
