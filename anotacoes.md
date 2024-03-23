@@ -1,7 +1,7 @@
         O que já foi feito:
-Criação do projeto:django-admin startproject projeto_ecommerce .
-Criação do app: py manage.py startapp app_MJ
-Criação do db.sqlite e manage.py : py manage.py migrate
+- Criação do projeto:django-admin startproject projeto_ecommerce .
+- Criação do app: py manage.py startapp app_MJ
+- Criação do db.sqlite e manage.py : py manage.py migrate
 
 
 
@@ -15,7 +15,7 @@ py manage.py makemigrations
 python manage.py migrate 
 - Para rodar:
 python manage.py runserver
-Para acessar o admin:
+- Para acessar o admin:
 python manage.py createsuperuser
 
 
