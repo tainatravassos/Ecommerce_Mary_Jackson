@@ -4,3 +4,6 @@ from app_MJ.models import Produto
 def base(request):
     produtos = Produto.objects.all()
     return render(request, 'base.html', {'produtos': produtos})
+
+def sobre(request):
+    return render(request, "sobre.html")
