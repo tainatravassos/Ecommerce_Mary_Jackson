@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from app_MJ.models import Produto
 
-def base(request):
+def home(request):
     produtos = Produto.objects.all()
-    return render(request, 'base.html', {'produtos': produtos})
+    return render(request, 'home.html', {'produtos': produtos})
 
 def sobre(request):
     return render(request, "sobre.html", {'sobre': 'active'})
