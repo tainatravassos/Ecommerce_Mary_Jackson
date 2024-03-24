@@ -35,3 +35,4 @@ http://127.0.0.1:8000/
 - Criação do requirements.txt, com os pacotes para rodar o projeto
 - Criação das urls do app_MJ (home,sobre,contato)
 - Criação das views do app_MJ (apenas retornando um HttpResponse)
+- Criação da Models
