@@ -6,4 +6,7 @@ def base(request):
     return render(request, 'base.html', {'produtos': produtos})
 
 def sobre(request):
-    return render(request, "sobre.html")
+    return render(request, "sobre.html", {'sobre': 'active'})
+
+def contato(request):
+    return render(request, "contato.html", {'contato': 'active'})
