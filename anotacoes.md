@@ -2,6 +2,8 @@
 
        O que você deve fazer ao entrar no projeto pela primeira vez:
 
+pip install virtualenv (caso não tenha o virtualenv instalado)
+
 1- Criação do ambiente virtual: py -m venv .venv ou python -m venv .venv
 2- Ativação do amb. virtual: .\.venv\Scripts\activate
 3- Instalação do django: pip install django
@@ -12,7 +14,7 @@
    e após nova instalaçao para atualizar rode o comando:
         pip freeze > requirements.txt
    
-5- Para atualizar o banco de dados:
+4- Para atualizar o banco de dados:
 python manage.py makemigrations
 python manage.py migrate 
 
