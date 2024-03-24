@@ -1,10 +1,12 @@
+   https://www.invertexto.com/squad - Andamento do projeto
+
        O que você deve fazer ao entrar no projeto pela primeira vez:
 
 1- Criação do ambiente virtual: py -m venv .venv ou python -m venv .venv
 2- Ativação do amb. virtual: .\.venv\Scripts\activate
 3- Instalação do django: pip install django
-4- Instalação do Booststrap5: pip install django-bootstrap5
- Ou
+
+ Ou baixar do github e rodar o comando:
    pip install -r requirements.txt
 
    e após nova instalaçao para atualizar rode o comando:
@@ -29,8 +31,4 @@ http://127.0.0.1:8000/
 - Criação do app: py manage.py startapp app_MJ
 - Criação do db.sqlite e manage.py : py manage.py makemigrations e migrate (sempre rodar esses comandos após criar um novo app ou baixar do github)
 - Criação do requirements.txt, com os pacotes para rodar o projeto
-- Settings.py: adicionado bootstrap5 
 
-
-
- 
