@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 
-class Clientes(models.Model):
+class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nome_completo = models.CharField(max_length=200)
     endereco = models.CharField(max_length=200, null=True, blank=True)
@@ -40,7 +40,7 @@ class Produto(models.Model):
 
 
 class Carrinho(models.Model):
-    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     total = models.DecimalField(default=0, max_digits=5, decimal_places=2)
     data_pedido = models.DateTimeField(default=datetime.now, blank=True)
     
@@ -75,7 +75,7 @@ class Pedido_order(models.Model):
     carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE)
     ordenando_por = models.CharField(max_length=200)
     endereco_envio = models.CharField(max_length=200)
-    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     subtotal = models.PositiveIntegerField()
     total = models.PositiveIntegerField()
     data_pedido = models.DateTimeField(default=datetime.now, blank=True)
