@@ -1,0 +1,16 @@
+:root {
+  --green: #527853;
+  --dark-orange: #ee7214;
+  --light-orange: #f7b787;
+  --salmon: #f9e8d9; 
+
+  --black: #000;
+  --white: #fff;
+
+  --light-blue: #007bff;
+}
+
+
+h2 {
+  color: var(--green);
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+{% endblock %}
+
+{% block title %}
+    Cadastrar Produto
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Cadastrar Produto</h2>
+</div>
+
+<form action="" method="POST" id="form">
+
+  <button type="submit" class="btn btn-primary btn-block">Cadastrar Produto</button>
+     
+</form>
+{% endblock %}
+
