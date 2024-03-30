@@ -1,0 +1,12 @@
+@import './color.css';
+
+h2 {
+  color: var(--green);
+}
+
+form {
+  margin: 2rem; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 20px;
+}

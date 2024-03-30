@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+
 <title>{% block title%}Contato{% endblock%}</title>
+
 {% block content %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
 <div class="container mt-4">
-    <h1>CONTATO</h1>
+    <h2>CONTATO</h2>
 </div>
 {% endblock %}
