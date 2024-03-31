@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from app_MJ.forms import ProdutoForm
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.cache import cache_page
 from app_MJ.models import *
 
@@ -15,20 +14,9 @@ def sobre(request):
 def contato(request):
     return render(request, "contato.html", {'contato': 'active'})
 
-def cadastro_produto(request):
-    produto = Produto.objects.all()
-    form = ProdutoForm(request.POST or None)
-    success = False
-    error = False
-    if form.is_valid():
-        form.save()
-        success = True
-    else:
-        error = True
-    context = {
-        'form': form,
-        'success': success,
-        'error': error,
-        'produto': produto,
-    }
-    return render(request, "cadastro_produto.html", context)    
+def produto_detalhe(request, produto_id):
+    produto = get_object_or_404(Produto, pk=produto_id)    
+    return render(request, 'produto_detalhe.html', {'produto': produto})
+
+
+
