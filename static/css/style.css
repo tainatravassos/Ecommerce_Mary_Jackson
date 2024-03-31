@@ -1,0 +1,25 @@
+@import './color.css';
+
+h2, h6 {
+  color: var(--green);
+}
+
+.title {
+  font-size: 30px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--dark-orange);
+  font-weight: 600;
+}
+
+.value {
+  font-size: 20px;
+  color: var(--dblack);
+  font-weight: 600;
+}
+
+.content {
+  font-size: 16px;
+}

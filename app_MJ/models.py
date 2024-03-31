@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django import forms
 from django.contrib.auth.models import User
 
 class Cliente(models.Model):
@@ -25,7 +26,7 @@ class Categoria(models.Model):
 
 
 class Produto(models.Model):
-    nome_produto = models.CharField(max_length=200, default='Produto sem nome')
+    nome_produto = models.CharField(max_length=200, default='')
     slug = models.SlugField(max_length=200, default='')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, default=1) 
     descricao = models.TextField()

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Detalhe do Produto
+{% endblock %}
+
+{% block content %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+<div class="container mt-4">
+    <h6>Detalhes do Produto:</h6>
+
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <img src="{{produto.imagem.url}}" alt="{{produto.nome_produto}}" width="300" style="border-radius: 4px; max-width: 100%;">
+      </div>
+      <div class="col-12 col-md-8">
+        <p class="title">{{ produto.nome_produto }}</p>
+
+        <p><span class="badge bg-success">{{ produto.categoria }}</span></p>
+        <hr>
+        <p class="subtitle">Detalhes do produto</p>
+        <p class="content">{{ produto.descricao }}</p>
+        <hr>
+        <p class="subtitle">Preço da unidade</p>
+        <p class="value">R$ {{ produto.preco }}</p>
+
+        {% if produto.quantidade >= 1  %}
+        <p><span class="badge bg-info">Em Estoque {{ produto.quantidade }}</span></p>
+        {% else %}
+        <p><span class="badge bg-danger">Produto Indisponíve</span></p>
+        {% endif %}
+      </div>
+    </div>
+
+    
+
+</div>
+
+
+{% endblock %}

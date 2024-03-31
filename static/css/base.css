@@ -1,0 +1,13 @@
+@import './color.css';
+
+.nav-link {
+  color: var(--black); /* Cor padrão dos links */
+}
+.nav-link.active,
+.nav-link:hover {
+  color: var(--light-blue); /* Cor dos links quando ativos ou ao passar o mouse */
+}
+
+.menu-dropdown {
+  margin-right: 4rem;
+}
