@@ -29,8 +29,8 @@
         <p class="subtitle">Preço da unidade</p>
         <p class="value">R$ {{ produto.preco }}</p>
 
-        {% if '{{ produto.quantidade }} >=1'  %}
-        <p><span class="badge bg-info">Em Estoque</span></p>
+        {% if produto.quantidade >= 1  %}
+        <p><span class="badge bg-info">Em Estoque {{ produto.quantidade }}</span></p>
         {% else %}
         <p><span class="badge bg-danger">Produto Indisponíve</span></p>
         {% endif %}
