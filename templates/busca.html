@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Resultados da Busca{% endblock %}
+{% block content %}
+<h1>Resultados da Busca por "{{ termo_busca }}"</h1>
+{% if resultados %}
+    <div class="row">
+        {% for produto in resultados %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ produto.imagem.url }}" class="card-img-top" alt="{{ produto.nome_produto }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome_produto }}</h5>
+                        <p class="card-text">{{ produto.descricao }}</p>
+                        <p class="card-text">Preço: R$ {{ produto.preco }}</p>
+                        {% if produto.quantidade >= 1 %}
+                            <p class="card-text"><span class="badge bg-success">Em Estoque: {{ produto.quantidade }}</span></p>
+                        {% else %}
+                            <p class="card-text"><span class="badge bg-danger">Produto Indisponível</span></p>
+                        {% endif %}
+                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-primary">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Nenhum resultado encontrado para "{{ termo_busca }}"</p>
+{% endif %}
+{% endblock %}
