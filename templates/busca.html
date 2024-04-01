@@ -1,29 +1,45 @@
 {% extends 'base.html' %}
 {% block title %}Resultados da Busca{% endblock %}
 {% block content %}
-<h1>Resultados da Busca por "{{ termo_busca }}"</h1>
-{% if resultados %}
-    <div class="row">
-        {% for produto in resultados %}
-            <div class="col-md-4 mb-4">
+<h3 class="text-center mb-4 text-muted" style="font-family: Poppins;">Resultados da Busca por "{{ termo_busca }}"</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        {% if resultados %}
+            {% for produto in resultados %}
+       
+            <div class="col-md-4 mb-4 mt-2">
                 <div class="card">
-                    <img src="{{ produto.imagem.url }}" class="card-img-top" alt="{{ produto.nome_produto }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ produto.nome_produto }}</h5>
-                        <p class="card-text">{{ produto.descricao }}</p>
-                        <p class="card-text">Preço: R$ {{ produto.preco }}</p>
-                        {% if produto.quantidade >= 1 %}
-                            <p class="card-text"><span class="badge bg-success">Em Estoque: {{ produto.quantidade }}</span></p>
-                        {% else %}
-                            <p class="card-text"><span class="badge bg-danger">Produto Indisponível</span></p>
-                        {% endif %}
-                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-primary">Ver detalhes</a>
+                    <h5 class="card-title text-center mb-4 mt-2" style="font-size: 24px;">{{ produto.nome_produto }}</h5>
+                    <div class="card-body text-center border-bottom-0">
+                        <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3" alt="{{ produto.nome_produto }}" style="max-width: 200px; margin-bottom: -15px;">
+                        <p class="card-text d-none">{{ produto.descricao }}</p>
+                        <p class="card-text"><strong class="font-size-lg" style="font-size: 20px;">Preço: R$ {{ produto.preco }}</strong></p>
+                    </div>                            
+                    <div class="card-footer text-center">
+                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success btn-lg">Detalhes</a>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        
+                
+            {% endfor %}
+        {% else %}
+        <div class="col-md-12 text-center">
+            <div class="alert alert-warning alert-dismissible text-center d-inline-block mx-auto" role="alert" style="font-family: Poppins;">
+                Nenhum resultado encontrado para "{{ termo_busca }}"
+                <button type="button" class="btn-close" aria-label="Close" onclick="fecharAlerta()"></button>
+            </div>
+        </div>
+        <script>
+            function fecharAlerta() {
+                var alerta = document.querySelector('.alert');
+                alerta.style.display = 'none';
+                window.location.href = "{% url 'home' %}";
+            }
+        </script>
+
+        {% endif %}
     </div>
-{% else %}
-    <p>Nenhum resultado encontrado para "{{ termo_busca }}"</p>
-{% endif %}
+</div>
+<p class="text-center" style="font-family: Poppins;"><a href="https://fonts.google.com/specimen/Poppins" target="_blank" rel="noopener noreferrer"></a></p>
 {% endblock %}
