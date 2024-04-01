@@ -27,7 +27,6 @@ class Categoria(models.Model):
 
 class Produto(models.Model):
     nome_produto = models.CharField(max_length=200, default='')
-    slug = models.SlugField(max_length=200, default='')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, default=1) 
     descricao = models.TextField()
     quantidade = models.IntegerField(default=0)
@@ -38,6 +37,12 @@ class Produto(models.Model):
     
     def __str__(self):
         return self.nome_produto
+    
+    def imagem_url(self):
+        if self.imagem:
+            return self.imagem.url
+        else:
+            return None
 
 
 class Carrinho(models.Model):
