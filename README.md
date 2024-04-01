@@ -1,3 +1,8 @@
+### Bootcamp Python & Django - 🦋 WoMakers Code 🦋
+
+### Criação de um E-commerce com Django
+
+### Squad: Mary Jackson
 
 Data de entrega
 
