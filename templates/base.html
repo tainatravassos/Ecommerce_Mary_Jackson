@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%}{% endblock%}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
@@ -15,6 +16,9 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -25,22 +29,27 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="menu-dropdown">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <img src="{% static 'images/icones/person.png' %}" alt="ícone pessoa" class="mb-1" width="25" height="25">
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Login</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">btn</a>
+            <form class="d-flex me-3" action="{% url 'busca' %}" method="GET" style="max-width: 300px;">
+                <input class="form-control me-2" type="search" name="q" placeholder="Buscar produtos..." aria-label="Buscar" style="font-family: 'Poppins', sans-serif;">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+            
+            <div class="menu-dropdown">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <img src="{% static 'images/icones/person.png' %}" alt="ícone pessoa" class="mb-1" width="25" height="25">
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Login</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">btn</a>
+                </div>
             </div>
         </div>
     </nav>
     {% block content %}
     {% endblock %}
 
-    <!-- To make dropdown work -->
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

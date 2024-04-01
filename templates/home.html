@@ -5,17 +5,28 @@
 <div>
     <h1>Ecommerce de produtos ...</h1>
     <p>Seja bem-vindo ao Ecommerce da Squad Mary Jackson</p>
-
-
-    {% for produto in produtos %}
-
-    <h5>{{produto.nome_produto}}</h5>
-    <div>
-        <a href="{% url 'produto_detalhe' produto.id %}"><button class="btn btn-success col-12" style="padding: top 5px;">Visualizar</button></a>
-     </div>
-
-    {% endfor %}
     
+    <!-- Lista de produtos -->
+    
+    <div class="row">
+        {% for produto in produtos %}
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    {% if produto.imagem %}
+                        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome_produto }}" class="card-img-top img-fluid">
+                    {% else %}
+                        <p>Imagem não disponível</p>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome_produto }}</h5>
+                        <div>
+                            <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success col-12">Visualizar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
