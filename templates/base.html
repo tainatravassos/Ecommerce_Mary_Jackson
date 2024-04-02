@@ -35,16 +35,14 @@
           <ul class="navbar-nav flex-grow-1"
             style="justify-content: center;  font-weight:  500;">
             <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; color:#fff"
-                href="#">Início</a>
+                <a class="nav-link" style="margin-right: 30px; color:#fff" href="{% url 'home' %}">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; color:#fff"
-                href="#">Produtos</a>
+                <a class="nav-link" style="margin-right: 30px; color:#fff" href="#">Produtos</a>
             </li>
+            
             <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; color:#fff;"
-                href="#">Sobre</a>
+                <a class="nav-link" style="margin-right: 30px; color:#fff;" href="{% url 'sobre' %}">Sobre</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" style="margin-right: 30px; color:#fff"
@@ -54,8 +52,8 @@
           <div class="align-self-end d-flex">
             <form action="{% url 'busca' %}" method="GET" class="form-inline">
                 <div class="input-group">
-                    <input type="text" name="q" id="busca" placeholder="Pesquisar por..." style="border-radius: 10px 0 0 10px; border: 1px solid white; padding: 5px 10px;" class="form-control">
-                    <button type="submit" class="btn btn-outline-light btn-sm rounded-end px-3" style="margin-left: -1px; border: 1px solid white;">Buscar</button>
+                    <input type="text" name="q" id="busca" placeholder="Pesquisar por..." style="border-radius: 10px 0 0 10px; border: 1px solid rgb(243, 238, 238); padding: 5px 10px;" class="form-control">
+                    <button type="submit" class="btn btn-outline-light btn-sm rounded-end px-4" style="margin-left: -1px; border: 1px solid rgb(248, 244, 244);">Buscar</button>
                 </div>
             </form>
         </div>
