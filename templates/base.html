@@ -5,76 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%}{% endblock%}</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
-    <link rel="shortcut icon" href="{% static 'icones/seedling-solid.svg' %}" type="image/svg+xml">
+    <link rel="stylesheet"
+          href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <link rel="shortcut icon" href="{% static 'icones/seedling-solid.svg' %}"
+          type="image/svg+xml">
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
-  <body style="background-color: #F9E8D9;">
-    <nav class="navbar navbar-expand-lg shadow-sm mb-3" style="background-color: #527853;">
-      <div class="container">
-        <a class="navbar-brand" href="/"><img src="{% static 'images/logo_MJ_final.png' %}" alt="" height="70"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-          <span class="navbar-toggler-icon"></span>
+<body style="background-color: #F9E8D9;">
+<nav class="navbar navbar-expand-lg shadow-sm mb-3"
+     style="background-color: #527853;">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img
+                    src="{% static 'images/logo_MJ_final.png' %}" alt height="70"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse">
-          <ul class="navbar-nav flex-grow-1" style="justify-content: center;  font-weight:  500;">
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; color:#fff" href="#">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; color:#fff" href="#">Produtos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; color:#fff;" href="#">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; color:#fff" href="#rodape">Contato</a>
-            </li>
-          </ul>
-  
-          <div class="align-self-end">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" >
-                  <img src="{% static 'icones/person.svg' %}" width="24" height="24" fill="#1d1d1d" alt="icone person">
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Login</a>
-                    <a class="dropdown-item" href="#">Cadastro</a>
-                </div>          
-              </li>
-  
-              <li class="nav-item">
-                <a href="#" style="color:bisque" class="nav-link">
-                  <img src="{% static 'icones/cart3.svg' %}" width="24" height="24" alt="icone carrinho">
-                </a>
-              </li>
+            <ul class="navbar-nav flex-grow-1"
+                style="justify-content: center;  font-weight:  500;">
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-right: 30px; color:#fff"
+                       href="#">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-right: 30px; color:#fff"
+                       href="#">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-right: 30px; color:#fff;"
+                       href="#">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="margin-right: 30px; color:#fff"
+                       href="#rodape">Contato</a>
+                </li>
             </ul>
-          </div>
+            <div class="align-self-end d-flex">
+                <form action="{% url 'busca' %}" method="GET" class="form-inline">
+                    <div class="input-group">
+                        <input type="text" name="q" id="busca" placeholder="Pesquisar por..." style="border-radius: 10px 0 0 10px; border: 1px solid white; padding: 5px 10px;" class="form-control">
+                        <button type="submit" class="btn btn-outline-light btn-sm rounded-end px-3" style="margin-left: -1px; border: 1px solid white;">Buscar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </nav>  
-    {% block content %}
-    {% endblock %}
-    
-    <footer id="rodape" style="background-color: #F9E8D9;">
-      <img src="{% static 'icones/wave.svg' %}" alt="" />
-      <div class="footer_items" style="display: flex; justify-content: space-between; align-items: center">
+        <div class="ms-auto d-flex align-items-center">
+            <ul class="navbar-nav">
+                <li class="nav-item ms-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink">
+                        <img src="{% static 'icones/person.svg' %}" width="24" height="24" fill="#1d1d1d" alt="icone person">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="#">Cadastro</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" style="color:bisque" class="nav-link">
+                        <img src="{% static 'icones/cart3.svg' %}" width="24" height="24" alt="icone carrinho">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+
+<footer id="rodape" style="background-color: #F9E8D9;">
+    <img src="{% static 'icones/wave.svg' %}" alt />
+    <div class="footer_items"
+         style="display: flex; justify-content: space-between; align-items: center">
         <span>Squad Mary Jackson &copy 2024</span>
         <div class="social-media">
-          <a href="" style="color:#1d1d1d"><i class="fa-brands fa-whatsapp"></i></a>
-  
-          <a href="" style="color:#1d1d1d"><i class="fa-brands fa-instagram"></i></a>
-  
-          <a href="" style="color:#1d1d1d"><i class="fa-regular fa-envelope"></i></a>
+            <a href style="color:#1d1d1d"><i
+                        class="fa-brands fa-whatsapp"></i></a>
+
+            <a href style="color:#1d1d1d"><i
+                        class="fa-brands fa-instagram"></i></a>
+
+            <a href style="color:#1d1d1d"><i
+                        class="fa-regular fa-envelope"></i></a>
         </div>
-      </div>
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    </div>
+</footer>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
 </html>
