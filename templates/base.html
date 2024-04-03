@@ -49,14 +49,14 @@
                 href="#rodape">Contato</a>
             </li>
           </ul>
-          <div class="align-self-end d-flex">
+          <div class="align-self-end d-flex" >
             <form action="{% url 'busca' %}" method="GET" class="form-inline">
                 <div class="input-group">
                     <input type="text" name="q" id="busca" placeholder="Pesquisar por..." style="border-radius: 10px 0 0 10px; border: 1px solid rgb(243, 238, 238); padding: 5px 10px;" class="form-control">
                     <button type="submit" class="btn btn-outline-light btn-sm rounded-end px-4" style="margin-left: -1px; border: 1px solid rgb(248, 244, 244);">Buscar</button>
                 </div>
             </form>
-        </div>
+            </div>
 
         
         <div class="align-self-end">
@@ -78,7 +78,6 @@
                 </li>
             </ul>
         </div>
-        
     </nav>
     {% block content %}
     {% endblock %}

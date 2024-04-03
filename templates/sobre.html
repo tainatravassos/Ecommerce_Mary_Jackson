@@ -2,108 +2,117 @@
 {% load static %}
 
 {% block title %}
-    Sobre
+  Sobre
 {% endblock %}
 
 {% block content %}
+  <head>
+    <style>
+      * {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <head>
-        <style>
-            * {
-                font-family: 'Poppins', sans-serif;
-                
-            }
+      html,body{
+        overflow-x: hidden;
+      }
+      
+      body {
+        min-width: 372px;
+      }
+      
+      .footer_items {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 8% 24px 8%;
+        align-items: center;
+      }
+      
+      #copyright {
+        color: #1d1d1d;
+        font-weight: 500;
+      }
+      
+      .social-media {
+        display: flex;
+        gap: 18px;
+      }
+      
+      .social-media a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 40px;
+        font-size: 1.25rem;
+        border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+      }
+      
+      .social-media a:hover {
+        box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      @media screen and (max-width: 600px) {
+        .footer_items {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+      
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        position: absolute;
+        transform: translate3d(5px, 28px, 0px);
+        top: 0px;
+        left: 0px;
+        will-change: transform;
+      }
 
-            .footer_items {
-                display: flex;
-                justify-content: space-between;
-                padding: 0px 8% 24px 8%;
-                align-items: center;
-              }
-              
-              #copyright {
-                color: #1d1d1d;
-                font-weight: 500;
-              }
-              
-              .social-media {
-                display: flex;
-                gap: 18px;
-              }
-              
-              .social-media a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 45px;
-                height: 40px;
-                font-size: 1.25rem;
-                border-radius: 10px;
-                text-decoration: none;
-                box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
-                transition: box-shadow 0.3s ease;
-              }
-              
-              .social-media a:hover {
-                box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.1);
-              }
-              
-              @media screen and (max-width: 600px) {
-                .footer_items {
-                  flex-direction: column;
-                  gap: 20px;
-                }
-              }
-              
-              .dropdown:hover .dropdown-menu {
-                display: block;
-                position: absolute;
-                transform: translate3d(5px, 28px, 0px); 
-                top: 0px;
-                left: 0px;
-                will-change: transform;
-              }
-              .dropdown {
-                display: inline-block; 
-                list-style: none; 
-              }
-        </style>
-        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        
-    </head>
+      .dropdown {
+        display: inline-block;
+        list-style: none;
+      }
+    </style>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </head>
 
-    <div class="row justify-content-center border border-top border-bottom">
-        <div class="col-md-8 mt-4 mb-4">
-            <div class="card">
-                <div class="card-body mb-4">
-                    <div class="d-flex justify-content-center align-items-center mb-5">
-                        <h2 class="card-title text-muted" style=" margin-right: 10px;">Nossa Missão</h2>
-                        <img src="{% static 'images/icones/missao.png' %}" alt="Imagem da Missão" class="mb-3" style="max-width: 60px;">
-                    </div>
-                    <p class="lead text-center mb-5 text-muted">Nossa missão é fornecer produtos saudáveis e sustentáveis para nossos clientes, promovendo um estilo de vida mais consciente e ético. Acreditamos que a alimentação pode ser uma forma de cuidar não apenas da nossa saúde, mas também do meio ambiente e dos animais.</p>
-                    
-                    <h2 class="card-title text-center mb-5 text-muted" >Nossos Produtos</h2>
-                    <p class="lead text-center mb-5 text-muted">Em nossa loja, você encontrará uma ampla variedade de produtos orgânicos e veganos, cuidadosamente selecionados para garantir a máxima qualidade e frescor. Desde frutas e verduras cultivadas sem agrotóxicos até alimentos processados e produtos de higiene pessoal livres de ingredientes de origem animal.</p>
-                    
-                    <h2 class="card-title text-center mb-5 text-muted">Nossa Filosofia</h2>
-                    <p class="lead text-center mb-5">Nosso compromisso vai além de oferecer produtos. Queremos educar e inspirar nossos clientes a fazerem escolhas mais conscientes, contribuindo para um mundo mais sustentável e compassivo. Valorizamos a transparência, a ética e o respeito por todas as formas de vida.</p>
-                    
-                    <h2 class="card-title text-center mb-5 text-muted">Explore Nosso Espaço</h2>
-                    <p class="lead text-center mb-5">Embarque em uma jornada conosco e descubra nosso espaço no coração da cidade. Aqui, não só oferecemos os melhores produtos, mas também compartilhamos o processo de criação de cada item, infundido com todo o nosso amor e cuidado. Venha nos visitar e mergulhe em um mundo de possibilidades para uma vida mais saudável e feliz!</p>
-                    
-                    <div class="d-flex justify-content-center align-items-center mb-5">
-                        <h2 class="card-title text-muted" style="margin-right: 10px;">Fundadoras</h2>
-                        <img src="{% static 'images/icones/valor.png' %}" alt="Imagem da Missão" class="mb-3" style="max-width: 70px;">
-                    </div>
-                    <p class="lead text-center mb-5">Para nosso grupo, não se trata apenas de alcançar o sucesso. Aqui, nos dedicamos à criação de produtos veganos e orgânicos com amor. Acreditamos que cada produto que desenvolvemos reflete nosso compromisso com a qualidade, o respeito ao meio ambiente e o bem-estar dos nossos clientes. Levantar cedo pela manhã deve ser recompensador! Valorizamos o trabalho árduo, mas também celebramos nossas conquistas. <br>
-                    
-                    Nosso objetivo é criar um ambiente de trabalho mais humano, onde todos se sintam valorizados, respeitados e livres para serem autênticos. Além de buscarmos o crescimento profissional, valorizamos o desenvolvimento pessoal e colaborativo. Juntos, avançamos em direção a um futuro melhor, onde a equidade, a compaixão e a liberdade são prioridades.</p>
-                </div>
-                
-            </div>
+  <div class="row justify-content-center border border-bottom">
+    <div class="col-md-8 mt-4 mb-4">
+      <div class="card">
+        <div class="card-body mb-4">
+          <div class="d-flex justify-content-center align-items-center">
+            <h2 class="card-title  mb-3" style="font-size:1.5rem; color:#1d1d1d; margin-right: 10px;">Nossa Missão</h2>
+            <img src="{% static 'images/icones/missao.png' %}" alt="Imagem da Missão" class="mb-3" style="max-width: 60px;" />
+          </div>
+          <p class="lead text-center mb-5 text-muted" style="font-size:16px">Nossa missão é fornecer produtos saudáveis e sustentáveis para nossos clientes, promovendo um estilo de vida mais consciente e ético. Acreditamos que a alimentação pode ser uma forma de cuidar não apenas da nossa saúde, mas também do meio ambiente e dos animais.</p>
+
+          <h2 class="card-title text-center mb-3" style="font-size:1.5rem; color:#1d1d1d; margin-right: 40px;">Nossos Produtos</h2>
+          <p class="lead text-center mb-5 text-muted" style="font-size:16px">Em nossa loja, você encontrará uma ampla variedade de produtos orgânicos e veganos, cuidadosamente selecionados para garantir a máxima qualidade e frescor. Desde frutas e verduras cultivadas sem agrotóxicos até alimentos processados e produtos de higiene pessoal livres de ingredientes de origem animal.</p>
+
+          <h2 class="card-title text-center mb-3" style="font-size:1.5rem; color:#1d1d1d; margin-right: 40px;">Nossa Filosofia</h2>
+          <p class="lead text-center mb-5 text-muted" style="font-size:16px">Nosso compromisso vai além de oferecer produtos. Queremos educar e inspirar nossos clientes a fazerem escolhas mais conscientes, contribuindo para um mundo mais sustentável e compassivo. Valorizamos a transparência, a ética e o respeito por todas as formas de vida.</p>
+
+          <h2 class="card-title text-center mb-3" style="font-size:1.5rem; color:#1d1d1d; margin-right: 40px;">Explore Nosso Espaço</h2>
+          <p class="lead text-center mb-5 text-muted" style="font-size:16px">Embarque em uma jornada conosco e descubra nosso espaço no coração da cidade. Aqui, não só oferecemos os melhores produtos, mas também compartilhamos o processo de criação de cada item, infundido com todo o nosso amor e cuidado. Venha nos visitar e mergulhe em um mundo de possibilidades para uma vida mais saudável e feliz!</p>
+
+          <div class="d-flex justify-content-center align-items-center ">
+            <h2 class="card-title mb-3" style="font-size:1.5rem; color:#1d1d1d;margin-right: 10px;">Fundadoras</h2>
+            <img src="{% static 'images/icones/valor.png' %}" alt="Imagem da Missão" class="mb-3" style="max-width: 60px;" />
+          </div>
+          <p class="lead text-center mb-5 text-muted" style="font-size:16px">
+            Para nosso grupo, não se trata apenas de alcançar o sucesso. Aqui, nos dedicamos à criação de produtos veganos e orgânicos com amor. Acreditamos que cada produto que desenvolvemos reflete nosso compromisso com a qualidade, o respeito ao meio ambiente e o bem-estar dos nossos clientes. Levantar cedo pela manhã deve ser recompensador! Valorizamos o trabalho árduo, mas também celebramos nossas conquistas. <br />
+
+            Nosso objetivo é criar um ambiente de trabalho mais humano, onde todos se sintam valorizados, respeitados e livres para serem autênticos. Além de buscarmos o crescimento profissional, valorizamos o desenvolvimento pessoal e colaborativo. Juntos, avançamos em direção a um futuro melhor, onde a equidade, a compaixão e a liberdade são prioridades.
+          </p>
         </div>
+      </div>
     </div>
+  </div>
 {% endblock %}
-
