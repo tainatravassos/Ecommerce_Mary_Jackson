@@ -7,18 +7,17 @@ pip install virtualenv (caso não tenha o virtualenv instalado)
 1- Criação do ambiente virtual: py -m venv .venv ou python -m venv .venv
 2- Ativação do amb. virtual: .\.venv\Scripts\activate
 3- Instalação do django: pip install django
-
-Ou baixar do github e rodar o comando:
-pip install -r requirements.txt
-
-e após nova instalaçao para atualizar rode o comando:
-pip freeze > requirements.txt
-
 3.1- Instalar bootstrap5 com o seguinte comando:
 pip install django-bootstrap5
 
 3.2- Intalar Pillow com comando:
 python -m pip install Pillow
+
+***Ou baixar do github e rodar o comando:***
+pip install -r requirements.txt (para instalar todas as dependências do projeto de uma vez)
+
+E após nova instalaçao para atualizar rode o comando:
+pip freeze > requirements.txt
 
 4- Para atualizar o banco de dados:
 python manage.py makemigrations
