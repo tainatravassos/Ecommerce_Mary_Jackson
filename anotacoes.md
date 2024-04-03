@@ -31,7 +31,7 @@ python manage.py createsuperuser
 
 7- Para rodar o servidor:
 python manage.py runserver
-http://127.0.0.1:8000/
+http://127.0.0.1:8000/home
 
         O que já foi feito:
 
