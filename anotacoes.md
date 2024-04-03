@@ -14,8 +14,8 @@ pip install -r requirements.txt
 e após nova instalaçao para atualizar rode o comando:
 pip freeze > requirements.txt
 
-3.1- Instalar bootstrap4 com o seguinte comando:
-pip install django-bootstrap4
+3.1- Instalar bootstrap5 com o seguinte comando:
+pip install django-bootstrap5
 
 3.2- Intalar Pillow com comando:
 python -m pip install Pillow
