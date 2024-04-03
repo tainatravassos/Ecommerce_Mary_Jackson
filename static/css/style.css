@@ -1,29 +1,76 @@
+/* Importar estilos do arquivo color.css */
 @import './color.css';
 
+/* Estilos gerais para títulos */
 h2, h6 {
   color: var(--green);
 }
 
+/* Estilos para títulos personalizados */
 .title {
   font-size: 30px;
 }
 
+.title span {
+  color: #527853;
+}
+
+/* Estilos para subtítulos */
 .subtitle {
   font-size: 20px;
   color: var(--dark-orange);
   font-weight: 600;
 }
 
+/* Estilos para valores */
 .value {
   font-size: 20px;
   color: var(--dblack);
   font-weight: 600;
 }
 
+/* Estilos para o conteúdo */
 .content {
   font-size: 16px;
 }
 
+.description {
+  font-size: 1rem;
+  text-align: center;
+}
+
+#cta_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+#cta_buttons a {
+  text-decoration: none;
+  color: #1d1d1d;
+}
+
+.btn-default {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EE7214;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-default:hover {
+  background-color: #FF9130;
+}
+
+
+
+/* Estilos gerais */
 * {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -31,14 +78,43 @@ h2, h6 {
   box-sizing: border-box;
 }
 
+/* Estilos específicos para o body e html */
 html,body{
   overflow-x: hidden;
 }
 
 body {
+  background-color:#F9E8D9;
   min-width: 372px;
 }
 
+/* Estilos para o conteúdo principal */
+main {
+  width: 80%;
+  margin: auto;
+}
+
+/* Estilos para seções */
+section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+article {
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+article h2 {
+  color: #1d1d1d;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+
+
+/* Estilos para o rodapé */
 .footer_items {
   display: flex;
   justify-content: space-between;
@@ -46,11 +122,13 @@ body {
   align-items: center;
 }
 
+/* Estilos para o copyright */
 #copyright {
   color: #1d1d1d;
   font-weight: 500;
 }
 
+/* Estilos para mídias sociais */
 .social-media {
   display: flex;
   gap: 18px;
@@ -73,13 +151,7 @@ body {
   box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 600px) {
-  .footer_items {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
+/* Estilos para o menu suspenso */
 .dropdown:hover .dropdown-menu {
   display: block;
   position: absolute;
@@ -92,4 +164,27 @@ body {
 .dropdown {
   display: inline-block;
   list-style: none;
+}
+
+
+
+/* Estilos responsivos para telas menores */
+@media screen and (max-width: 600px) {
+  .footer_items {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  transform: translate3d(5px, 28px, 0px); 
+  top: 0px;
+  left: 0px;
+  will-change: transform;
+}
+.dropdown {
+  display: inline-block; 
+  list-style: none; 
 }
