@@ -62,13 +62,6 @@ h2, h6 {
   box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 600px) {
-  .footer_items {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
 .dropdown:hover .dropdown-menu {
   display: block;
   position: absolute;
@@ -80,4 +73,11 @@ h2, h6 {
 .dropdown {
   display: inline-block; 
   list-style: none; 
+}
+
+@media screen and (max-width: 600px) {
+  .footer_items {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
