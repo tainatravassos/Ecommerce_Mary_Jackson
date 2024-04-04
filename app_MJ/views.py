@@ -34,3 +34,7 @@ def busca(request):
             )
 
     return render(request, 'busca.html', {'resultados': resultados, 'termo_busca': termo_busca})
+
+def produtos(request):
+    produtos = Produto.objects.all()
+    return render(request, 'produtos.html', {'produtos': produtos})
