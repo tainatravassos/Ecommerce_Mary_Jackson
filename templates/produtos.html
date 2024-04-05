@@ -2,30 +2,70 @@
 {% block title %}Resultados da Busca{% endblock %}
 {% block content %}
 
+
+<!--Style para o conteúdo do card de produto -->
+<!--
+.produto-content {
+  margin-bottom: 20px; /* Espaçamento inferior entre cada card de produto */
+}
+
+/* Estilo para o preço do produto */
+.preco {
+  margin-top: -10px; /* Ajusta a margem superior para aproximar o preço do nome do produto */
+}
+
+/* Estilo para os elementos .col-md-4 */
+.col-md-4 {
+  margin-bottom: 20px; /* Define a margem inferior para os cards */
+}
+
+/* Estilo para a classe .section */
+.section {
+  margin-bottom: 20px; /* Define a margem inferior para os cards */
+}
+
+/* Estilo para os links */
+.produto-link,
+a {
+  color: black; /* Define a cor do texto do link como preto */
+  text-decoration: none; /* Remove o sublinhado */
+  cursor: pointer; /* Altera o cursor ao passar por cima do link */
+}
+
+/* Estilo para os links quando passar o mouse */
+.produto-link:hover,
+a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar por cima do link */
+}
+-->
 <div class="container">
-    <h1>produtos</h1>
+    <h3 style="margin-bottom: 30px">Produtos</h3>
+
+    {% if produtos %}
     <div class="row justify-content-center">
-        {% if produtos %}
-            {% for produto in produtos %}
-                <div class="col-md-4 mb-4 mt-2">
-                    <div class="card">
-                        <h5 class="card-title text-center mb-4 mt-2" style="font-size: 24px;">{{ produto.nome_produto }}</h5>
-                    </div>
-                    <div class="card-body text-center border-bottom-0">
-                        <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3" alt="{{ produto.nome_produto }}" style="max-width: 200px; margin-bottom: -15px;">
-                        <p class="card-text d-none">{{ produto.descricao }}</p>
-                        <p class="card-text"><strong class="font-size-lg" style="font-size: 20px;">Preço: R$ {{ produto.preco }}</strong></p>
-                    </div>  
-                    <div class="card-footer text-center">
-                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success btn-lg">Detalhes</a>
-                    </div>   
-                       
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum produto encontrado.</p>
-        {% endif %}
+        {% for produto in produtos %}
+        <div class="col-md-4 mb-4 mt-2 section">
+            <div class="card-body text-center border-bottom-0">
+                <img
+                    src="{{ produto.imagem.url }}"
+                    class="card-img-top mx-auto d-block mb-3"
+                    alt="{{ produto.nome_produto }}"
+                    style="max-width: 200px; margin-bottom: -15px"
+                />
+                <p class="card-title text-center mb-4 mt-2" style="font-size: 16px">
+                    <a href="{% url 'produto_detalhe' produto.id %}">{{ produto.nome_produto }}</a>
+                </p>
+                <p class="card-text d-none">{{ produto.descricao }}</p>
+                <p class="card-text"><strong class="font-size-lg" style="font-size: 20px">R$ {{ produto.preco }}</strong></p>
+                    <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success">Comprar</a>
+
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    {% else %}
+    <p>Nenhum produto encontrado.</p>
+    {% endif %}
 </div>
 
 {% endblock %}

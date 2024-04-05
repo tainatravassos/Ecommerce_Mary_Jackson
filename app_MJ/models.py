@@ -32,7 +32,7 @@ class Produto(models.Model):
     quantidade = models.IntegerField(default=0)
     imagem = models.ImageField(upload_to="", null=True, blank=True)
     preco = models.DecimalField(max_digits=5, decimal_places=2)
-    visualizacao = models.IntegerField(default=0)
+    #visualizacao = models.IntegerField(default=0)
     data_produto = models.DateTimeField(default=datetime.now, blank=True)
     
     def __str__(self):
