@@ -9,6 +9,8 @@ from app_MJ.models import *
 def home(request):
     produtos = Produto.objects.all()
     return render(request, 'home.html', {'produtos': produtos})
+def cestas(request):
+    return render(request, 'cestas.html')
 
 def sobre(request):
     return render(request, "sobre.html", {'sobre': 'active'})
