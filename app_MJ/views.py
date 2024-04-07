@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.cache import cache_page
+from app_MJ.forms import ClienteForm
 from django.db.models import Q
 from app_MJ.models import *
 
@@ -40,3 +41,22 @@ def busca(request):
 def produtos(request):
     produtos = Produto.objects.all()
     return render(request, 'produtos.html', {'produtos': produtos})
+
+def cadastro(request):
+    user = Cliente.objects.all()
+    form = ClienteForm(request.POST or None)
+    success = False
+    error = False
+    if form.is_valid():
+        form.save()
+        success = True
+        form.clean()
+    else:
+        error = True
+    context = {
+        'form': form,
+        'success': success,
+        'error': error,
+        'user': user,
+    }
+    return render(request, "user.html", context)

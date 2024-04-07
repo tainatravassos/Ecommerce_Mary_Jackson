@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}
+  Usuário
+{% endblock %}
+
+{% block content %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+<div class="container mt-4">
+  <h2>Cadastrar</h2>
+</div>
+
+{% if success  %}
+<div class="success">
+  <h5 class="text-center">Dados cadastros com sucesso!</h5>
+  <hr>
+  <p class="text-center" style="margin-bottom: 0;">
+    Fazer <a href="#">Login</a>
+  </p>
+</div>
+{% endif %}
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="row col-lg-4">
+      <form action="" method="POST" id="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          style="margin-bottom: 20px;">
+          Efetuar Cadastro
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -12,7 +12,7 @@ h2, h6 {
 }
 
 .title span {
-  color: #527853;
+  color: var(--green);
 }
 
 /* Estilos para subtítulos */
@@ -200,6 +200,14 @@ article h2 {
   list-style: none;
 }
 
+.success {
+  background-color: rgba(68, 194, 68, 0.595);
+  padding: 20px 0;
+  margin-bottom: 30px;
+  h5 {
+    color: #043f04;
+  }
+}
 
 
 /* Estilos responsivos para telas menores */
@@ -209,3 +217,4 @@ article h2 {
     gap: 20px;
   }
 }
+

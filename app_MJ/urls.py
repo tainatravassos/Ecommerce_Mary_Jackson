@@ -1,5 +1,5 @@
 from django.urls import path
-from app_MJ.views import home, cestas, sobre, contato, produto_detalhe, busca, produtos
+from app_MJ.views import home, cestas, sobre, contato, produto_detalhe, busca, produtos, cadastro
 
 urlpatterns = [
     path('', home, name='home'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('produto-detalhe/<int:produto_id>', produto_detalhe, name="produto_detalhe"),
     path('busca/', busca, name='busca'),
     path('produtos/', produtos, name='produtos'),
+    path('cadastro/', cadastro, name='cadastro'),
 ]
