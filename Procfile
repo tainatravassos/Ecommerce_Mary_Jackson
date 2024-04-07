@@ -1,0 +1,1 @@
+web : shh setup.ssh && streamlit run app.py
