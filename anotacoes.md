@@ -1,4 +1,4 @@
-https://www.invertexto.com/squad - Andamento do projeto
+ https://www.invertexto.com/squad - Andamento do projeto
 
     O que você deve fazer ao entrar no projeto pela primeira vez:
 
@@ -24,9 +24,14 @@ pip install virtualenv (caso não tenha o virtualenv instalado)
     
     python -m pip install Pillow
 
-***Ou baixar do github e rodar o comando:***
+3.3 django-bootstrap-icons:
+  
+      pip install django-bootstrap-icons
 
-    pip install -r requirements.txt (para instalar todas as dependências do projeto de uma vez)
+Ou (Para instalar todas as dependências do projeto de uma vez)
+
+    pip install -r requirements.txt 
+
 
 E após cada nova instalaçao de dependência, para atualizar rode o comando:
     
