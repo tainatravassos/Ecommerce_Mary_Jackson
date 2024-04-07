@@ -39,7 +39,7 @@ a:hover {
 }
 -->
 <div class="container">
-    <h3 style="margin-bottom: 30px">Produtos</h3>
+    <h3 class="text-muted" style="margin-bottom: 30px; margin-top: 20px; text-align: center; font-size: 24px; font-weight: 600;">Produtos</h3>
 
     {% if produtos %}
     <div class="row justify-content-center">
@@ -53,7 +53,7 @@ a:hover {
                     style="max-width: 200px; margin-bottom: -15px"
                 />
                 <p class="card-title text-center mb-4 mt-2" style="font-size: 16px">
-                    <a href="{% url 'produto_detalhe' produto.id %}">{{ produto.nome_produto }}</a>
+                    <a style="text-decoration: none; color:#1d1d1dad" href="{% url 'produto_detalhe' produto.id %}">{{ produto.nome_produto }}</a>
                 </p>
                 <p class="card-text d-none">{{ produto.descricao }}</p>
                 <p class="card-text"><strong class="font-size-lg" style="font-size: 20px">R$ {{ produto.preco }}</strong></p>
