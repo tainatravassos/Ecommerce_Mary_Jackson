@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.cache import cache_page
+from app_MJ.forms import ClienteForm
 from django.db.models import Q
 from app_MJ.models import *
 
@@ -7,8 +8,12 @@ from app_MJ.models import *
 @cache_page(30)
 
 def home(request):
+    categorias = Categoria.objects.all()
     produtos = Produto.objects.all()
-    return render(request, 'home.html', {'produtos': produtos})
+    return render(request, 'home.html', {'produtos': produtos, 'categorias': categorias})
+
+def cestas(request):
+    return render(request, 'cestas.html')
 
 def sobre(request):
     return render(request, "sobre.html", {'sobre': 'active'})
@@ -19,7 +24,6 @@ def contato(request):
 def produto_detalhe(request, produto_id):
     produto = get_object_or_404(Produto, pk=produto_id)    
     return render(request, 'produto_detalhe.html', {'produto': produto})
-
 
 def busca(request):
     termo_busca = request.GET.get('q')
@@ -35,6 +39,31 @@ def busca(request):
 
     return render(request, 'busca.html', {'resultados': resultados, 'termo_busca': termo_busca})
 
+
 def produtos(request):
     produtos = Produto.objects.all()
     return render(request, 'produtos.html', {'produtos': produtos})
+
+
+def cadastro(request):
+    user = Cliente.objects.all()
+    form = ClienteForm(request.POST or None)
+    success = False
+    error = False
+    if form.is_valid():
+        form.save()
+        success = True
+        form.clean()
+    else:
+        error = True
+    context = {
+        'form': form,
+        'success': success,
+        'error': error,
+        'user': user,
+    }
+    return render(request, "user.html", context)
+
+def categorias(request):
+    categorias = Categoria.objects.all().order_by('nome')
+    return render(request, 'categorias.html', {'categorias': categorias})

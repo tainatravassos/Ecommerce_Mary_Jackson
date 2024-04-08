@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Entrega Programada
+{% endblock %}
+
+{% block content %}
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="/src/icones/seedling-solid.svg" type="image/x-icon" />
+  </head>
+
+  <div class="container py-5">
+    <h3 class="title" style="text-align: center; font-size: 1.5rem;">Escolha a sua cesta</h3>
+    <p class="description text-muted">Com a entrega programada você recebe periodicamente uma cesta de sua escolha</p>
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col">
+        <div class="card h-100" style="border:2px solid #ccc;">
+          <img src="/static/images/pequena.png" alt="" class="card-img-top"/>
+          <h4 class="card-header text-muted" style="font-weight: 600; background-color:#fff; font-size:1.5rem;">Pequena</h4>
+          <div class="card-body">
+            <h6 class="card-subtitle"><strong style="color:#527853">R$ 60 + FRETE</strong></h6>
+            <p class="card-text text-muted" style="color:#1d1d1d">Semanal</p>
+            <p class="card-text text-muted" style="color:#1d1d1d">Contém 10 variedades</p>
+            <button id="botao_cesta_pequena" type="button" class="btn btn-success">Escolher</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100" style="border:2px solid #ccc">
+          <img src="/static/images/cesta-media.png" alt="" class="card-img-top"/>
+          <h4 class="card-header text-muted" style="font-weight: 600; background-color:#fff; font-size:1.5rem;">Média</h4>
+          <div class="card-body">
+            <h6 class="card-subtitle"><strong style="color:#527853">R$ 90 + FRETE GRÁTIS</strong></h6>
+            <p class="card-text text-muted" style="color:#1d1d1d">Quinzenal</p>
+            <p class="card-text text-muted" style="color:#1d1d1d">Contém 18 variedades</p>
+            <button id="botao_cesta_media" type="button" class="btn btn-success">Escolher</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100" style="border: 2px solid #ccc;">
+          <img src="/static/images/grande.png" alt="" class="card-img-top"/>
+          <h4 class="card-header text-muted" style="font-weight: 600; background-color:#fff; font-size:1.5rem;">Grande</h4>
+          <div class="card-body">
+            <h6 class="card-subtitle"><strong style="color:#527853">R$ 120 + FRETE GRÁTIS</strong></h6>
+            <p class="card-text text-muted" style="color:#1d1d1d">Mensal</p>
+            <p class="card-text text-muted" style="color:#1d1d1d">Contém 25 variedades e produto extra</p>
+            <button id="botao_cesta_grande" type="button" class="btn btn-success">Escolher</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="alerta" class="alert alert-success mt-3" style="display: none;">
+      <p>Pronto! Sua cesta foi escolhida, agora é só aguardar o período de entrega.</p>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+        $('#botao_cesta_pequena').click(function() {
+            $('#alerta').show();
+        });
+        $('#botao_cesta_media').click(function() {
+            $('#alerta').show();
+        });
+        $('#botao_cesta_grande').click(function() {
+            $('#alerta').show();
+        });
+    });
+</script>
+{% endblock %}

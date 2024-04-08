@@ -12,7 +12,7 @@ h2, h6 {
 }
 
 .title span {
-  color: #527853;
+  color: var(--green);
 }
 
 /* Estilos para subtítulos */
@@ -101,14 +101,63 @@ section {
 
 article {
   padding: 25px;
-  margin-top: 25px;
-  margin-bottom: 20px;
+  /*margin-top: 25px;
+  margin-bottom: 20px;*/
 }
 
 article h2 {
   color: #1d1d1d;
   font-size: 2.5rem;
   text-align: center;
+}
+
+/*Estilos para o scroll horizontal */
+.wrapper{
+  max-height: 200px;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.wrapper::-webkit-scrollbar{
+  width:0;
+}
+
+.wrapper::-webkit-scrollbar:hover {
+  cursor: pointer;
+}
+
+.wrapper .item{
+  min-width:110px;
+  height: 110px;
+  line-height: 110px;
+  text-align: center;
+  background-color: #D9EDBF;
+  margin-right: 6px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.item a, .item-click a{
+  text-decoration: none;
+  color:#1d1d1d;
+  font-weight: 500;
+}
+
+.item-click{
+  min-width:110px;
+  height: 110px;
+  line-height: 110px;
+  text-align: center;
+  background-color: #EE7214;
+  margin-right: 6px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.item-click:hover {
+  transform: scale(1.1);
+  
 }
 
 /* Estilos para o rodapé */
@@ -163,6 +212,14 @@ article h2 {
   list-style: none;
 }
 
+.success {
+  background-color: rgba(68, 194, 68, 0.595);
+  padding: 20px 0;
+  margin-bottom: 30px;
+  h5 {
+    color: #043f04;
+  }
+}
 
 
 /* Estilos responsivos para telas menores */
@@ -172,3 +229,4 @@ article h2 {
     gap: 20px;
   }
 }
+
