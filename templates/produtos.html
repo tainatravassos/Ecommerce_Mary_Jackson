@@ -57,7 +57,7 @@ a:hover {
                 </p>
                 <p class="card-text d-none">{{ produto.descricao }}</p>
                 <p class="card-text"><strong class="font-size-lg" style="font-size: 20px">R$ {{ produto.preco }}</strong></p>
-                    <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success">Comprar</a>
+                    <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success">Adicionar ao carrinho</a>
 
             </div>
         </div>

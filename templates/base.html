@@ -78,10 +78,16 @@
                 </li>
         
                 <li class="nav-item">
-                    <a href="#" style="color:bisque" class="nav-link">
-                        <img src="{% static 'icones/cart3.svg' %}" width="24" height="24" alt="icone carrinho">
-                    </a>
-                </li>
+                  <a href="#" class="nav-link position-relative">
+                      <img src="{% static 'icones/cart3.svg' %}" width="24" height="24" alt="icone carrinho" style="filter: brightness(0) invert(1);">
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark-orange" style="background-color: darkorange;">
+                          0
+                          <span class="visually-hidden">itens no carrinho</span>
+                      </span>
+                  </a>
+              </li>
+              
+              
             </ul>
         </div>
     </nav>
