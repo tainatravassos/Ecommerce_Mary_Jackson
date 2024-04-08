@@ -4,14 +4,18 @@ from django import forms
 from django.contrib.auth.models import User
 
 class Cliente(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    estados = (
+        ('AC', 'AC'), ('AL', 'AL'), ('AP', 'AP'), ('AM', 'AM'), ('BA', 'BA'), ('CE', 'CE'), ('ES', 'ES'), ('GO', 'GO'), ('MA', 'MA'), ('MT', 'MT'), ('MS', 'MS'), ('MG', 'MG'), ('PA', 'PA'), ('PB', 'PB'), ('PR', 'PR'), ('PE', 'PE'), ('PI', 'PI'), ('RJ', 'RJ'), ('RN', 'RN'), ('RS', 'RS'), ('RO', 'RO'), ('RR', 'RR'), ('SC', 'SC'), ('SP', 'SP'), ('SE', 'SE'), ('TO', 'TO'), ('DF', 'DF'),    
+    )
+
     nome_completo = models.CharField(max_length=200)
     endereco = models.CharField(max_length=200, null=True, blank=True)
-    cidade = models.CharField(max_length=200)
-    estado = models.CharField(max_length=200)
+    cidade = models.CharField(max_length=100)
+    estado = models.CharField(max_length=4, choices=estados)
     data_cadastro = models.DateTimeField(default=datetime.now, blank=True)
     telefone = models.CharField(max_length=200)
     email = models.EmailField(max_length=200, null=True, blank=True, unique=True)
+    senha = models.CharField(max_length=15)
 
     def __str__(self):
         return self.nome_completo
