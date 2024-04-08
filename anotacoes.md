@@ -1,4 +1,4 @@
- https://www.invertexto.com/squad - Andamento do projeto
+https://www.invertexto.com/squad - Andamento do Projeto
 
     O que você deve fazer ao entrar no projeto pela primeira vez:
 
@@ -34,8 +34,7 @@ Ou (Para instalar todas as dependências do projeto de uma vez)
 
 
 E após cada nova instalaçao de dependência, para atualizar rode o comando:
-    
-    pip freeze > requirements.txt
+        pip freeze > requirements.txt
 
 4- Para atualizar o banco de dados:
   
@@ -51,6 +50,7 @@ _Após garantir que o banco de dados está atualizado, você pode criar um super
 7- Para rodar o servidor:
 
     python manage.py runserver
+    
     http://127.0.0.1:8000/
 
   *** O que já foi feito: ***
