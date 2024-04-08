@@ -21,6 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <link rel="shortcut icon" href="{% static 'icones/seedling-solid.svg' %}"
       type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
 
   </head>
   <body style="background-color: #FBF6EE;">
@@ -72,12 +73,22 @@
                         <a class="dropdown-item" href="#">Cadastro</a>
                     </div>          
                 </li>
-        
-                <li class="nav-item">
-                    <a href="#" style="color:bisque" class="nav-link">
-                        <img src="{% static 'icones/cart3.svg' %}" width="24" height="24" alt="icone carrinho">
-                    </a>
-                </li>
+                <form class="d-flex">
+                  <button class="btn bg-transparent position-relative" id="add_carr">
+                      <i class="bi bi-cart-fill text-white fs-3 position-relative">
+                          <span class="badge rounded-circle" style="background-color: #ee7214; color: white; font-weight: normal; font-size: 0.8rem; padding: 0.25rem 0.5rem; position: absolute; top: -12px; right: -18px;">0</span>
+                      </i>                               
+                  </button>    
+                </form>    
+              
+              
+              
+              
+              
+              
+              
+              
+              
             </ul>
         </div>
     </nav>
