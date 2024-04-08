@@ -49,20 +49,17 @@
               <a class="nav-link" style="margin-right: 30px; text-decoration: none;
               color: #fff;" href="/sobre">Sobre</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px; text-decoration: none;
-              color: #fff;"
-                href="#rodape">Contato</a>
-            </li>
-          </ul>
-          <div class="align-self-end d-flex" >
-            <form action="{% url 'busca' %}" method="GET" class="form-inline">
+            <div class="align-self-end" >
+              <form action="{% url 'busca' %}" method="GET" class="form-inline">
                 <div class="input-group">
-                    <input  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true" title ="Pesquise por categoria ou produto." type="text" name="q" id="busca" placeholder="Pesquisar por..." style="border-radius: 10px 0 0 10px; border: 1px solid rgb(243, 238, 238); padding: 5px 10px;" class="form-control">
-                    <button type="submit" class="btn btn-outline-light btn-sm rounded-end px-4" style="margin-left: -1px; border: 1px solid rgb(248, 244, 244);">Buscar</button>
+                  <input data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true" title="Pesquise por categoria ou produto." type="text" name="q" id="busca" placeholder="Pesquisar por..." style="border-radius: 10px 0 0 10px; border: 1px solid rgb(243, 238, 238); padding: 5px 8px; width: 150px;" class="form-control">
+                  <button type="submit" class="btn btn-outline-light btn-sm px-2" style="margin-left: -1px; border: 1px solid rgb(248, 244, 244);">Buscar</button>
                 </div>
-            </form>
-            </div>
+              </form>
+              </div>
+          </ul>
+        
+            
 
         
         <div class="align-self-end">
