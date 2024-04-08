@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Categorias{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for categoria in categorias %}
+        <div class="col-md-2 mb-4">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ categoria.nome }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for produto in categoria.produto_set.all %}
+                    <a class="dropdown-item" href="{% url 'produto_detalhe' produto.id %}">{{ produto.nome_produto }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card-deck">
+                {% for produto in categoria.produto_set.all %}
+                <div class="card produto-card">
+                    <a href="{% url 'produto_detalhe' produto.id %}">
+                        <!-- <img src="{{ produto.imagem.url }}" class="card-img-top" alt="{{ produto.nome_produto }}"> -->
+                    </a>
+                </div>
+                {% endfor %}
+            </div> 
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

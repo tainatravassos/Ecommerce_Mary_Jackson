@@ -8,8 +8,10 @@ from app_MJ.models import *
 @cache_page(30)
 
 def home(request):
+    categorias = Categoria.objects.all()
     produtos = Produto.objects.all()
-    return render(request, 'home.html', {'produtos': produtos})
+    return render(request, 'home.html', {'produtos': produtos, 'categorias': categorias})
+
 def cestas(request):
     return render(request, 'cestas.html')
 
@@ -22,7 +24,6 @@ def contato(request):
 def produto_detalhe(request, produto_id):
     produto = get_object_or_404(Produto, pk=produto_id)    
     return render(request, 'produto_detalhe.html', {'produto': produto})
-
 
 def busca(request):
     termo_busca = request.GET.get('q')
@@ -38,9 +39,11 @@ def busca(request):
 
     return render(request, 'busca.html', {'resultados': resultados, 'termo_busca': termo_busca})
 
+
 def produtos(request):
     produtos = Produto.objects.all()
     return render(request, 'produtos.html', {'produtos': produtos})
+
 
 def cadastro(request):
     user = Cliente.objects.all()
@@ -60,3 +63,7 @@ def cadastro(request):
         'user': user,
     }
     return render(request, "user.html", context)
+
+def categorias(request):
+    categorias = Categoria.objects.all().order_by('nome')
+    return render(request, 'categorias.html', {'categorias': categorias})
