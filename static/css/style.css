@@ -138,26 +138,14 @@ article h2 {
   transition: transform 0.3s ease;
 }
 
-.item a, .item-click a{
+.item a{
   text-decoration: none;
-  color:#1d1d1d;
+  color:rgb(100, 97, 97);
   font-weight: 500;
 }
 
-.item-click{
-  min-width:110px;
-  height: 110px;
-  line-height: 110px;
-  text-align: center;
-  background-color: #EE7214;
-  margin-right: 6px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.item-click:hover {
-  transform: scale(1.1);
-  
+.item a:hover{
+  color:#1d1d1d;
 }
 
 /* Estilos para o rodapé */
