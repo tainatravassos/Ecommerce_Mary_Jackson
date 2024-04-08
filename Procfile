@@ -1,1 +1,1 @@
-web : shh setup.ssh && streamlit run app.py
+web: shh setup.ssh && python manage.py runserver 0.0.0.0:$PORT
