@@ -17,14 +17,14 @@ h2, h6 {
 
 /* Estilos para subtítulos */
 .subtitle {
-  font-size: 20px;
+  font-size: 10px;
   color: var(--dark-orange);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* Estilos para valores */
 .value {
-  font-size: 20px;
+  font-size: 30px;
   color: var(--dblack);
   font-weight: 600;
 }

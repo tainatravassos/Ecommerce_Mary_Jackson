@@ -19,7 +19,8 @@ db.sqlite3-journal
 # Byte-compiled / optimized / DLL files
 *.py[cod]
 *$py.class
-
+*.pyc
+__pycache__/
 # C extensions
 *.so
 
