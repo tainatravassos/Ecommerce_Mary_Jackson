@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_MJ',
     'bootstrap5',
-    'django_bootstrap_icons'
+    'django_bootstrap_icons',
     
 ]
 
