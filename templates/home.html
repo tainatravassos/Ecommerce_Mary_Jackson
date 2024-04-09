@@ -16,7 +16,7 @@
   </head>
 
   <header>
-    <div class="" style="display: flex; align-items: center;">
+    <div class="" style=" align-items: center;">
       <div id="carouselMain" class="carousel slide carousel-light" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="0" class="active"></button>
@@ -26,15 +26,15 @@
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
             <img src="{% static 'slides/milho.png' %}" class="d-none d-md-block w-100" alt="First slide" />
-            <img class="d-block d-md-none w-100" src="/src/slides/slide01small.jpg" alt="" />
+            <img src="{%static 'slides/milhosmall.png'%}" class="d-block d-md-none w-100" alt="" />
           </div>
           <div class="carousel-item" data-bs-interval="3000">
             <img src="{% static 'slides/cafe.png' %}" class="d-none d-md-block w-100" alt="Second slide" />
-            <img class="d-block d-md-none w-100" src="/src/slides/slide01small.jpg" alt="" />
+            <img src="{%static 'slides/cafesmall.png'%}" class="d-block d-md-none w-100" alt="" />
           </div>
           <div class="carousel-item" data-bs-interval="3000">
             <img src="{% static 'slides/feijao.png' %}" class="d-none d-md-block w-100" alt="Third slide" />
-            <img class="d-block d-md-none w-100" src="/src/slides/slide01small.jpg" alt="" />
+            <img src="{%static 'slides/feijaosmall.png'%}" class="d-block d-md-none w-100" alt="" />
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
@@ -46,7 +46,7 @@
           <span class="visually-hidden">Próximo</span>
         </button>
       </div>
-      <hr class="mt-3" />
+      
     </div>
   </header>
 
@@ -83,9 +83,11 @@
         <div style="margin-left: 10px; float:right;">
           <img src="{% static 'images/cesta.png' %}" alt="cesta de compras" style="width: 100%; height:auto" />
         </div>
-        <h2 class="title"><span>Entrega programada:</span> evite o desperdício no dia a dia!</h2>
-        <p class="description mt-10">Escolha entre a entrega semanal, quinzenal ou mensal.</p>
-        <br/>
+        <div>
+          <h2 class="title"><span>Entrega programada:</span> evite o desperdício no dia a dia!</h2>
+          <p class="description mt-10">Escolha entre a entrega semanal, quinzenal ou mensal.</p>
+        </div>
+        
 
         <div id="cta_buttons">
           <a href="/cestas" class="btn-default">Saiba mais</a>

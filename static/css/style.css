@@ -8,7 +8,8 @@ h2, h6 {
 
 /* Estilos para títulos personalizados */
 .title {
-  font-size: 30px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .title span {
@@ -89,20 +90,22 @@ body {
 
 /* Estilos para o conteúdo principal */
 main {
-  width: 80%;
-  margin: auto;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* Estilos para seções */
 section {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  max-width:800px;
+  width: 100%;
+  padding: 20px;
 }
 
 article {
-  padding: 25px;
-  /*margin-top: 25px;
-  margin-bottom: 20px;*/
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 article h2 {
@@ -131,11 +134,12 @@ article h2 {
   min-width:110px;
   height: 110px;
   line-height: 110px;
+  flex: 1 0 50%;
   text-align: center;
   background-color: #D9EDBF;
   margin-right: 6px;
+  padding:5px;
   border-radius: 50%;
-  transition: transform 0.3s ease;
 }
 
 .item a{
@@ -215,6 +219,10 @@ article h2 {
   .footer_items {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .item{
+    flex:1 0 100%;
   }
 }
 
