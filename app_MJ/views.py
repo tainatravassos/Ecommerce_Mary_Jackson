@@ -8,9 +8,8 @@ from app_MJ.models import *
 @cache_page(30)
 
 def home(request):
-    categorias = Categoria.objects.all()
     produtos = Produto.objects.all()
-    return render(request, 'home.html', {'produtos': produtos, 'categorias': categorias})
+    return render(request, 'home.html', {'produtos': produtos})
 
 def cestas(request):
     return render(request, 'cestas.html')
@@ -41,7 +40,7 @@ def busca(request):
 
 
 def produtos(request):
-    produtos = Produto.objects.all()
+    produtos = Produto.objects.all().order_by('nome_produto')
     return render(request, 'produtos.html', {'produtos': produtos})
 
 
@@ -67,3 +66,12 @@ def cadastro(request):
 def categorias(request):
     categorias = Categoria.objects.all().order_by('nome')
     return render(request, 'categorias.html', {'categorias': categorias})
+
+def carrinho(request):
+    # Lógica para recuperar os itens do carrinho e renderizar o template do carrinho
+    return render(request, 'carrinho.html')
+
+def pagamento(request):
+    # Lógica para processar o pagamento e renderizar o template de pagamento
+    return render(request, 'pagamento.html')
+

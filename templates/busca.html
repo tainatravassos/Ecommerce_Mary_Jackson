@@ -1,27 +1,38 @@
 {% extends 'base.html' %}
 {% block title %}Resultados da Busca{% endblock %}
 {% block content %}
+<style>
+    .card {
+        height: 100%;
+    }
+
+</style>
 <h3 class="text-center mb-4 text-muted" style="font-family: Poppins; font-size: 20px; margin-top: 20px;">Resultados da Busca por "{{ termo_busca }}"</h3>
 <div class="container">
     <div class="row justify-content-center">
         {% if resultados %}
             {% for produto in resultados %}
-       
-            <div class="col-md-4 mb-4 mt-2">
-                <div class="card">
-                    <h5 class="card-title text-center mb-2 mt-2" style="font-size: 20px;">{{ produto.nome_produto }}</h5>
-                    <div class="card-body text-center border-bottom-0">
-                        <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3" alt="{{ produto.nome_produto }}" style="max-width: 200px; margin-bottom: -15px;">
+            <div class="col-md-3 mb-5 mt-2">
+                <div class="card bg-transparent border-0" style="max-width: 200px;">
+                    <h4 class="title text-center mb-0 mt-1 text-muted " style="font-size: 18px;">
+                        <strong>{{ produto.nome_produto }}</strong>
+                    </h4>                  
+                    <div class="card-body text-center">
+                        <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3 rounded" alt="{{ produto.nome_produto }}" style="max-width: 170px; margin-bottom: -15px; border-radius: 8px;">
                         <p class="card-text d-none">{{ produto.descricao }}</p>
-                        <p class="card-text"><strong class="font-size-lg" style="font-size: 20px;">Preço: R$ {{ produto.preco }}</strong></p>
+                        <p class="card-text"><strong class="font-size-lg" style="font-size: 18px;">Preço: R$ {{ produto.preco }}</strong></p>
                     </div>                            
-                    <div class="card-footer text-center">
-                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success btn-lg">Detalhes</a>
+                    <div class="card-footer text-center d-flex justify-content-center">
+                        <div class="me-4">
+                            <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-outline-success btn-sm text-decoration-underline">Detalhes</a>
+                        </div>
+                        <div>
+                            <a href="{% url 'carrinho' %}" class="btn btn-success btn-sm text-decoration-underline">Comprar</a>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
-        
-                
             {% endfor %}
         {% else %}
         <div class="col-md-12 text-center">
@@ -37,9 +48,9 @@
                 window.location.href = "{% url 'home' %}";
             }
         </script>
-
         {% endif %}
     </div>
+    
 </div>
 <p class="text-center" style="font-family: Poppins;"><a href="https://fonts.google.com/specimen/Poppins" target="_blank" rel="noopener noreferrer"></a></p>
 {% endblock %}

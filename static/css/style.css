@@ -20,7 +20,7 @@ h2, h6 {
 .subtitle {
   font-size: 10px;
   color: var(--dark-orange);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 /* Estilos para valores */
@@ -225,4 +225,11 @@ article h2 {
     flex:1 0 100%;
   }
 }
+
+
+  
+
+
+
+
 

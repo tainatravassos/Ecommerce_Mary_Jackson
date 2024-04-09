@@ -23,10 +23,18 @@
 
         <p><span class="badge bg-success">{{ produto.categoria }}</span></p>
         <hr>
-        <p class="value">R$ {{ produto.preco }}</p>
-        <hr>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <p class="value">R$ {{ produto.preco }}</p>
+          <div class="text-end">
+              <a href="{% url 'carrinho' %}" class="btn btn-success">Comprar</a>
+          </div>
+      </div>
+      
+      <hr>
         <p class="subtitle">Descrição</p>
         <p class="content">{{ produto.descricao }}</p>
+             
+      
         {% comment %} <p class="subtitle">Preço da unidade</p> {% endcomment %}
         
         {% if produto.quantidade >= 1  %}
