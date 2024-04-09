@@ -85,3 +85,6 @@ plataforma possam gerenciar facilmente produtos, estoque, pedidos e clientes usa
 4- Para rodar o servidor:
 > python manage.py runserver
 http://127.0.0.1:8000/
+
+5 - Para acessar o nosso site:
+https://maryjackson-e5a137c3c635.herokuapp.com/
