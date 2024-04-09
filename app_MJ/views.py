@@ -67,3 +67,12 @@ def cadastro(request):
 def categorias(request):
     categorias = Categoria.objects.all().order_by('nome')
     return render(request, 'categorias.html', {'categorias': categorias})
+
+def carrinho(request):
+    # Lógica para recuperar os itens do carrinho e renderizar o template do carrinho
+    return render(request, 'carrinho.html')
+
+def pagamento(request):
+    # Lógica para processar o pagamento e renderizar o template de pagamento
+    return render(request, 'pagamento.html')
+
