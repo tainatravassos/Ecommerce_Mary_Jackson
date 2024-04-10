@@ -9,7 +9,8 @@ from app_MJ.models import *
 
 def home(request):
     produtos = Produto.objects.all()
-    return render(request, 'home.html', {'produtos': produtos})
+    categorias = Categoria.objects.all()
+    return render(request, 'home.html', {'produtos': produtos, 'categorias': categorias})
 
 def cestas(request):
     return render(request, 'cestas.html')
@@ -40,7 +41,15 @@ def busca(request):
 
 
 def produtos(request):
-    produtos = Produto.objects.all().order_by('nome_produto')
+    categoria_slug = request.GET.get('categoria', None)
+    categoria = None
+
+    if categoria_slug:
+        print(categoria_slug)
+        categoria = get_object_or_404(Categoria, slug=categoria_slug)
+        produtos = Produto.objects.filter(categoria=categoria).order_by('nome_produto')
+    else:     
+        produtos = Produto.objects.all().order_by('nome_produto')
     return render(request, 'produtos.html', {'produtos': produtos})
 
 
