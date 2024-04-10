@@ -130,25 +130,23 @@ article h2 {
   cursor: pointer;
 }
 
-.wrapper .item{
-  min-width:110px;
-  height: 110px;
+.wrapper .produto{
+  min-width: 110px;
+  height:110px;
   line-height: 110px;
-  flex: 1 0 50%;
   text-align: center;
   background-color: #D9EDBF;
-  margin-right: 6px;
-  padding:5px;
+  color: rgb(114, 114, 114);
+  margin-right:2px;
   border-radius: 50%;
 }
 
-.item a{
+.wrapper .produto a {
   text-decoration: none;
-  color:rgb(100, 97, 97);
-  font-weight: 500;
+  color:rgb(114, 114, 114);
 }
 
-.item a:hover{
+.produto a:hover{
   color:#1d1d1d;
 }
 
@@ -219,10 +217,6 @@ article h2 {
   .footer_items {
     flex-direction: column;
     gap: 20px;
-  }
-
-  .item{
-    flex:1 0 100%;
   }
 }
 
