@@ -1,6 +1,17 @@
 /* Importar estilos do arquivo color.css */
 @import './color.css';
 
+/* Classe personalizada para 7 colunas */
+.col-7 {
+  flex: 0 0 14.2857142857%; 
+  box-sizing: border-box; 
+  max-width: 14.2857142857%; 
+}
+
+
+
+
+
 /* Estilos gerais para títulos */
 h2, h6 {
   color: var(--green);
@@ -140,13 +151,13 @@ article h2 {
   text-align: center;
   background-color: #D9EDBF;
   color: rgb(114, 114, 114);
-  margin-right:2px;
   border-radius: 50%;
-  padding: 10px;
+  padding: 30px;
   white-space: normal;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 2px 0px;
 }
 
 .wrapper .produto a {
@@ -225,6 +236,10 @@ article h2 {
   .footer_items {
     flex-direction: column;
     gap: 20px;
+  }
+  .col-7 {
+    flex: 0 0 50%; /* Isso define a largura para 1/2 do contêiner pai */
+    max-width: 50%; /* Isso limita a largura máxima para 1/2 do contêiner pai */
   }
 }
 

@@ -66,11 +66,13 @@ Inicio
 
     <article>
       <h2 class="title mb-5" style="font-size: 24px;">Nossos produtos:</h2>
-      <div class="wrapper">
-        {% for categoria in categorias %}
-        <div class="produto"><a href="/produtos/?categoria={{ categoria.slug }}">{{ categoria.nome }}</a></div>
-        {% endfor %}
-        <div class="produto"><a href="/produtos">Ver todos</a></div>
+      <div class="row">
+        <div class="wrapper">
+          {% for categoria in categorias %}
+          <div class="col-7 produto"><a href="/produtos/?categoria={{ categoria.slug }}">{{ categoria.nome }}</a></div>
+          {% endfor %}
+          <div class="col-7 produto"><a href="/produtos">Ver todos</a></div>
+        </div>
       </div>
       <div style="clear: both;"></div>
     </article>
