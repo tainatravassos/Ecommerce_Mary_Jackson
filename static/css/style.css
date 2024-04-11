@@ -106,18 +106,22 @@ section {
 article {
   margin-bottom: 20px;
   padding: 20px;
+  margin-bottom: 50px;
 }
 
 article h2 {
   color: #1d1d1d;
   font-size: 2.5rem;
   text-align: center;
+  
 }
 
 /*Estilos para o scroll horizontal */
 .wrapper{
-  max-height: 200px;
+  max-height: 15%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -131,7 +135,7 @@ article h2 {
 }
 
 .wrapper .produto{
-  min-width: 110px;
+  width: 110px;
   height:110px;
   text-align: center;
   background-color: #D9EDBF;
