@@ -21,7 +21,7 @@
   <h5 class="text-center">Dados cadastros com sucesso!</h5>
   <hr>
   <p class="text-center" style="margin-bottom: 0;">
-    Fazer <a href="#">Login</a>
+    Fazer <a data-bs-toggle="modal" data-bs-target="#loginModal" style="cursor: pointer; color: #ee7214;">Login</a>
   </p>
 </div>
 {% endif %}
@@ -38,6 +38,33 @@
           style="margin-bottom: 20px;">
           Efetuar Cadastro
         </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="{% url 'login' %}" method="POST" id="form-login">
+        <div class="modal-body">
+          {% csrf_token %}
+          <div class="input-field">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+      
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Logar</button>
+        </div>
       </form>
     </div>
   </div>
