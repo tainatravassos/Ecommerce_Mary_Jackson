@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from .models import *
 
 class CategoriaAdmin(admin.ModelAdmin):
@@ -6,8 +7,19 @@ class CategoriaAdmin(admin.ModelAdmin):
     ordering = ('nome',)
 
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('nome_produto', 'categoria', 'preco', 'quantidade')
+    list_display = ('nome_produto', 'categoria', 'preco', 'quantidade', 'mostrar_imagem')
     ordering = ('nome_produto', 'categoria', 'preco', 'quantidade')
+
+    def mostrar_imagem(self, obj):
+        if obj.imagem:
+            return format_html('<img src="{}" alt="{}" style="max-width:100px; max-height:100px;" />',
+                               obj.imagem.url, obj.nome_produto)
+        else:
+            return "Nenhuma imagem disponível"
+
+    mostrar_imagem.allow_tags = True
+    mostrar_imagem.short_description = 'Imagem'
+
 
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nome_completo', 'cidade', 'estado', 'telefone', 'email')
