@@ -48,13 +48,14 @@ class Produto(models.Model):
             return None
 class Carrinho(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True, blank=True)
-    
     data_pedido = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return f"Carrinho ID: {self.id} - Cliente: {self.cliente.nome_completo}"
+        if self.cliente:
+            return f"Carrinho ID: {self.id} - Cliente: {self.cliente.nome_completo}"
+        else:
+            return f"Carrinho ID: {self.id} - Cliente: N/A"
 
-    
 
 class CarrinhoProduto(models.Model):
     carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE)
@@ -63,9 +64,9 @@ class CarrinhoProduto(models.Model):
     preco = models.DecimalField(max_digits=5, decimal_places=2)
     data_pedido = models.DateTimeField(default=datetime.now, blank=True)
     
-
     def __str__(self):
         return f"Carrinho: {self.carrinho.id} - CarrinhoProduto: {self.id} - Produto: {self.produto.nome_produto}"
+
 
 
 

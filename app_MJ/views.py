@@ -4,6 +4,7 @@ from django.views.decorators.cache import cache_page
 from django.contrib.auth import logout
 from app_MJ.forms import ClienteForm
 from django.db.models import Q
+from django.shortcuts import redirect
 from app_MJ.models import *
 
 
@@ -109,3 +110,8 @@ def carrinho(request, produto_id):
 def carrinhoproduto(request):
     carrinhoprodutos = CarrinhoProduto.objects.all()
     return render(request, 'carrinhoproduto.html', {'carrinhoprodutos': carrinhoprodutos})
+
+def deletar_item_carrinho(request, carrinhoproduto_id):
+    carrinhoproduto = get_object_or_404(CarrinhoProduto, pk=carrinhoproduto_id)
+    carrinhoproduto.delete()
+    return redirect('carrinhoproduto')
