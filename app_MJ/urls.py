@@ -10,6 +10,8 @@ urlpatterns = [
     path('busca/', busca, name='busca'),
     path('produtos/', produtos, name='produtos'),
     path('cadastro/', cadastro, name='cadastro'),
+    path('login/', login_usuario, name='login'),
+    path('logout/', logout_usuario, name='logout'),
     path('carrinho/', carrinho, name='carrinho'), 
     path('pagamento/', pagamento, name='pagamento'),
 ]

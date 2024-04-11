@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
+from django.shortcuts import redirect, render, get_object_or_404
 from django.views.decorators.cache import cache_page
+from django.contrib.auth import logout
 from app_MJ.forms import ClienteForm
 from django.db.models import Q
 from app_MJ.models import *
@@ -52,6 +54,17 @@ def produtos(request):
         produtos = Produto.objects.all().order_by('nome_produto')
     return render(request, 'produtos.html', {'produtos': produtos})
 
+def categorias(request):
+    categorias = Categoria.objects.all().order_by('nome')
+    return render(request, 'categorias.html', {'categorias': categorias})
+
+def carrinho(request):
+    # Lógica para recuperar os itens do carrinho e renderizar o template do carrinho
+    return render(request, 'carrinho.html')
+
+def pagamento(request):
+    # Lógica para processar o pagamento e renderizar o template de pagamento
+    return render(request, 'pagamento.html')
 
 def cadastro(request):
     user = Cliente.objects.all()
@@ -72,15 +85,18 @@ def cadastro(request):
     }
     return render(request, "user.html", context)
 
-def categorias(request):
-    categorias = Categoria.objects.all().order_by('nome')
-    return render(request, 'categorias.html', {'categorias': categorias})
+def logout_usuario(request):
+    logout(request)
+    return redirect('home')
 
-def carrinho(request):
-    # Lógica para recuperar os itens do carrinho e renderizar o template do carrinho
-    return render(request, 'carrinho.html')
+def login_usuario(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
 
-def pagamento(request):
-    # Lógica para processar o pagamento e renderizar o template de pagamento
-    return render(request, 'pagamento.html')
-
+        if Cliente.objects.filter(email=email, senha=senha).exists():
+            return render(request, 'home.html',{'usuario': Cliente.objects.all()})
+        else:
+            return HttpResponse('Usuário não cadastrado')
+    else:
+        return HttpResponse('Método não permitido')
