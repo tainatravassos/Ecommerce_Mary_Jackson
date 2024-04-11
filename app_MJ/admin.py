@@ -39,12 +39,10 @@ class CarrinhoProdutoAdmin(admin.ModelAdmin):
     ordering = ('carrinho', 'produto', 'quantidade', 'preco', 'data_pedido')  
 
     def cliente_e_produtos(self, obj):
-        cliente = obj.carrinho.cliente.nome_completo if obj.carrinho.cliente else "Sem cliente"
         produtos = ", ".join([carrinho_produto.produto.nome_produto for carrinho_produto in CarrinhoProduto.objects.filter(carrinho=obj.carrinho)])
-        return f"{cliente}: {produtos}"
+        return produtos
 
-    cliente_e_produtos.short_description = 'Cliente e Produtos'
-
+    cliente_e_produtos.short_description = 'Produtos'
 
 
 admin.site.register(Cliente, ClienteAdmin)
