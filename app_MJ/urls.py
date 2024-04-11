@@ -12,6 +12,7 @@ urlpatterns = [
     path('cadastro/', cadastro, name='cadastro'),
     path('login/', login_usuario, name='login'),
     path('logout/', logout_usuario, name='logout'),
-    path('carrinho/', carrinho, name='carrinho'), 
-    path('pagamento/', pagamento, name='pagamento'),
+    path('carrinho/<int:produto_id>', carrinho, name='carrinho'), 
+    path('carrinhoproduto/', carrinhoproduto, name='carrinho'),
+    
 ]

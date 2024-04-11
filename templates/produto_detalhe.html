@@ -25,9 +25,9 @@
         <hr>
         <div class="d-flex justify-content-between align-items-center mt-3">
           <p class="value">R$ {{ produto.preco }}</p>
-          <div class="text-end">
-              <a href="{% url 'carrinho' %}" class="btn btn-success">Comprar</a>
-          </div>
+          <a href="{% url 'carrinho' produto.id %}" class="btn btn-success" style="text-decoration: none;">
+            <i class="fas fa-shopping-cart"></i> Comprar
+        </a>
       </div>
       
       <hr>

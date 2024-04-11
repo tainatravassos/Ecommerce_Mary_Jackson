@@ -1,57 +1,20 @@
 {% extends 'base.html' %}
-
-{% block title %}
-Carrinho
-{% endblock %}
-
+{% block title %}Add carro{% endblock %}
 {% block content %}
-<div class="container mt-4">
-  <h1>Seu Carrinho</h1>
-  <div class="row">
-    <div class="col-md-8">
-      {% if carrinho_itens %}
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Produto</th>
-            <th scope="col">Preço</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in carrinho_itens %}
-          <tr>
-            <td>{{ item.produto.nome }}</td>
-            <td>R$ {{ item.produto.preco }}</td>
-            <td>
-              <form action="{% url 'atualizar_carrinho' %}" method="POST">
-                {% csrf_token %}
-                <input type="number" name="quantidade" value="{{ item.quantidade }}" min="1">
-                <input type="hidden" name="produto_id" value="{{ item.produto.id }}">
-                <button type="submit" class="btn btn-sm btn-outline-secondary">Atualizar</button>
-              </form>
-            </td>
-            <td>R$ {{ item.subtotal }}</td>
-            <td>
-              <form action="{% url 'remover_do_carrinho' %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="produto_id" value="{{ item.produto.id }}">
-                <button type="submit" class="btn btn-sm btn-outline-danger">Remover</button>
-              </form>
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <div class="text-end">
-        <a href="{% url 'pagamento' %}" class="btn btn-primary">Finalizar Pedido</a>
-      </div>
-      {% else %}
-      <p>Seu carrinho está vazio.</p>
-      {% endif %}
+
+<div class="container">
+    <h3 class="text-muted" style="margin-bottom: 30px; margin-top: 20px; text-align: center; font-size: 24px; font-weight: 600;"> {{produto.nome_produto}}</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4 mt-2 section">
+            <div class="card-body text-center border-bottom-0">
+                <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3" alt="{{ produto.nome_produto }}" style="max-width: 200px; margin-bottom: -15px" />
+                <p class="card-text d-none">{{ produto.descricao }}</p>
+                <a href="{% url 'carrinho' produto.id %}" class="btn btn-success" style="text-decoration: none;">Item adicionado</a>
+           </div>
+        </div>
     </div>
-  </div>
-</div>
+
+
+
 {% endblock %}

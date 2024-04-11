@@ -27,7 +27,7 @@
                             <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-outline-success btn-sm text-decoration-underline">Detalhes</a>
                         </div>
                         <div>
-                            <a href="{% url 'carrinho' %}" class="btn btn-success btn-sm text-decoration-underline">Comprar</a>
+                            <a href="{% url 'carrinho' produto.id %}" class="btn btn-success btn-sm text-decoration-underline">Comprar</a>
                         </div>
                     </div>
                     

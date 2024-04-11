@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Carrinho de Compras{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h3>Produtos no Carrinho</h3>
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            {% for carrinhoproduto in carrinhoprodutos %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <strong>Produto:</strong> {{ carrinhoproduto.produto.nome_produto }}
+                            <img
+                                src="{{ carrinhoproduto.produto.imagem.url }}"
+                                class="card-img-top mx-auto d-block mb-3"
+                                alt="{{ carrinhoproduto.produto.nome_produto }}"
+                                style="max-width: 100px; margin-bottom: -15px"
+                            />
+                        </div>
+                        <div class="col-sm-4">
+                            <strong>Carrinho:</strong> {{ carrinhoproduto.carrinho.id }}
+                        </div>
+                        <div class="col-sm-4">
+                            <strong>Cliente:</strong> {% if carrinhoproduto.carrinho.cliente %}{{ carrinhoproduto.carrinho.cliente.nome_completo }}{% else %}Sem cliente{% endif %}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

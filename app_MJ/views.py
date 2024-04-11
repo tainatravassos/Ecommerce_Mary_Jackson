@@ -12,7 +12,8 @@ from app_MJ.models import *
 def home(request):
     produtos = Produto.objects.all()
     categorias = Categoria.objects.all()
-    return render(request, 'home.html', {'produtos': produtos, 'categorias': categorias})
+    carrinho = Carrinho.objects.all()
+    return render(request, 'home.html', {'produtos': produtos, 'categorias': categorias, 'carrinho': carrinho})
 
 def cestas(request):
     return render(request, 'cestas.html')
@@ -58,14 +59,6 @@ def categorias(request):
     categorias = Categoria.objects.all().order_by('nome')
     return render(request, 'categorias.html', {'categorias': categorias})
 
-def carrinho(request):
-    # Lógica para recuperar os itens do carrinho e renderizar o template do carrinho
-    return render(request, 'carrinho.html')
-
-def pagamento(request):
-    # Lógica para processar o pagamento e renderizar o template de pagamento
-    return render(request, 'pagamento.html')
-
 def cadastro(request):
     user = Cliente.objects.all()
     form = ClienteForm(request.POST or None)
@@ -100,3 +93,19 @@ def login_usuario(request):
             return HttpResponse('Usuário não cadastrado')
     else:
         return HttpResponse('Método não permitido')
+
+
+def carrinho(request, produto_id):
+    produto = get_object_or_404(Produto, pk=produto_id)
+    carro_id = request.session.get('carro_id')
+    if carro_id:
+        carro_obj = Carrinho.objects.get(id=carro_id)
+    else:
+        carro_obj = Carrinho.objects.create(total=0)
+        request.session['carro_id'] = carro_obj.id
+    return render(request, 'carrinho.html', {'produto': produto, 'carrinho': carro_obj})
+
+
+def carrinhoproduto(request):
+    carrinhoprodutos = CarrinhoProduto.objects.all()
+    return render(request, 'carrinhoproduto.html', {'carrinhoprodutos': carrinhoprodutos})
