@@ -12,7 +12,7 @@
 {% endblock %}
 
 <div class="container mt-4">
-    <h6>Detalhes do Produto</h6>
+    <h6 style="font-size: 22px;">Detalhes do Produto</h6>
 
     <div class="row">
       <div class="col-12 col-md-4">
@@ -31,16 +31,18 @@
       </div>
       
       <hr>
-        <p class="subtitle">Descrição</p>
+        <p class="subtitle" style="font-size: 20px;">Descrição</p>
         <p class="content">{{ produto.descricao }}</p>
              
       
         {% comment %} <p class="subtitle">Preço da unidade</p> {% endcomment %}
         
         {% if produto.quantidade >= 1  %}
-        <p><span class="badge bg-info">Em Estoque</span></p>
-        {% else %}
-        <p><span class="badge bg-danger">Produto Indisponível</span></p>
+        <div style="margin: 30px 0;">
+          <p><span class="badge bg-info">Em Estoque</span></p>
+          {% else %}
+          <p><span class="badge bg-danger">Produto Indisponível</span></p>
+        </div>
         {% endif %}
       </div>
     </div>
