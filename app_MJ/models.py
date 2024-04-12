@@ -99,7 +99,7 @@ class CarrinhoProduto(models.Model):
 
     def __str__(self):
         return f"Carrinho: {self.carrinho.id} - CarrinhoProduto: {self.id} - Produto: {self.produto.nome_produto}"
-<<<<<<< HEAD
+
 
 class Total (models.Model):
     total = models.DecimalField(max_digits=5, decimal_places=2)
@@ -107,20 +107,19 @@ class Total (models.Model):
     def __str__(self):
         return self.total
 
-class pagamento(models.Model):
+class Pagamento(models.Model):  # Renomeei a classe para Pagamento (com P maiúsculo)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE)
     total = models.ForeignKey(Total, on_delete=models.CASCADE)
-    data_pedido = models.DateTimeField(default=datetime.now, blank=True)
+    data_pedido = models.DateTimeField(default=datetime.datetime.now, blank=True)  # Corrigi o uso de datetime.now
 
     def __str__(self):
         return f"Cliente: {self.cliente.nome_completo} - Carrinho: {self.carrinho.id} - Total: {self.total.total}"
     
-class editar_cliente(forms.ModelForm):
+class EditarCliente(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = ['nome_completo', 'endereco', 'cidade', 'estado', 'telefone', 'email', 'senha']
-        
-
-=======
->>>>>>> 3cb2cd9e882a4e38909b2a45c8410514adf34c92
+        widgets = {
+            'senha': forms.PasswordInput(),
+        }   
