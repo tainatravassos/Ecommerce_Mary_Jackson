@@ -27,7 +27,7 @@ Este é o projeto final do Bootcamp de Back-End que tem por objetivo consolidar 
 - Stefany Gracy Barros da Silva
 - Tainá Maria Travassos Mota Martins
 
-### Estrutura e Requisitos
+<h3> 📄 Estrutura e Requisitos <h3>
 
 #### 1. Especificações técnicas
 
@@ -99,12 +99,11 @@ O que você deve fazer ao entrar no projeto pela primeira vez:
 
 4- Para rodar o servidor:
 
-> python manage.py runserver
-> http://127.0.0.1:8000/
-
-5 - Para acessar o nosso site:
-https://maryjackson-e5a137c3c635.herokuapp.com/
+> python manage.py runserver <br> http://127.0.0.1:8000/
 
 6 - Para rodar os testes unitários
 
 > python manage.py test app_MJ
+
+<h3> 🔗 Para acessar o site: <h3>
+

@@ -11,13 +11,13 @@
         <div class="col-md-3 mb-5 mt-2">
             <div class="card bg-transparent border-0">
                 <div class="card-body text-center">
-                    <h4 class="card-title text-muted">{{ produto.nome_produto }}</h4>
+                    <h4 class="card-title text-muted" style="font-size: 1.2rem;">{{ produto.nome_produto }}</h4>
                     <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3 rounded" alt="{{ produto.nome_produto }}" style="max-width: 170px; margin-bottom: -15px; border-radius: 8px;">
                     <p class="card-text"><strong class="font-size-lg">Preço: R$ {{ produto.preco }}</strong></p>
                 </div>                            
                 <div class="card-footer text-center d-flex justify-content-center bg-transparent border-0 ">
                     <div class="me-4">
-                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-outline-success btn-sm text-decoration-underline">Detalhes</a>
+                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-outline-success btn-sm text-decoration-none">Detalhes</a>
                     </div>
                     <div>
                         <form action="{% url 'adicionar_produto_carrinho' produto.id %}" method="post">

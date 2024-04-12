@@ -2,28 +2,22 @@
 {% block title %}Carrinho de Compras{% endblock %}
 {% block content %}
 
-<div class="container mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h2 class="text-muted"><i class="fas fa-shopping-cart"></i> Meu Carrinho</h2>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <div class="card">
-                <ul class="list-group list-group-flush">
+<div class="container">
+    <h2 class=" mt-3 mb-3 text-muted text-center" style="font-size: 1.5rem;"><i class="fas fa-shopping-cart" style="font-size: 1.2rem;"></i> Meu Carrinho</h2>
+
+                <ul class="list-group mb-3">
                     {% for carrinhoproduto in carrinhoprodutos %}
-                    <li class="list-group-item">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 text-center">
-                                <img src="{{ carrinhoproduto.produto.imagem.url }}" class="img-fluid" alt="{{ carrinhoproduto.produto.nome_produto }}" style="max-width: 100px;">
+                    <li class="list-group-item py-3">
+                        <div class="row g-3 mb-3">
+                            <div class="col-4 col-md-3 col-lg-2">
+                                <img src="{{ carrinhoproduto.produto.imagem.url }}" class="img-thumbnail border-0" alt="{{ carrinhoproduto.produto.nome_produto }}" >
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-end">
                                 <h5>{{ carrinhoproduto.produto.nome_produto }}</h5>
                                 <p><strong>Preço:</strong> R$ {{ carrinhoproduto.produto.preco }}</p>
                                 <p><strong>Quantidade:</strong> {{ carrinhoproduto.quantidade }}</p>
                             </div>
-                            <div class="col-md-2 text-end">
+                            <div class="col-md-2 align-self-end text-end">
                                 <form action="{% url 'deletar_item_carrinho' carrinhoproduto.id %}" method="post">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger btn-sm">Remover</button>
@@ -34,14 +28,17 @@
                     </li>
                     {% endfor %}
                 </ul>
-            </div>
+         
+        
+   
+    <div class="row mt-4 mb-3">
+        <div class="col-md-6 text-center mb-2 mb-md-0">
+            <a href="{% url 'produtos' %}" class="btn btn-outline-success btn-md text-decoration-none">Continuar comprando</a>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12 text-center">
+        <div class="col-md-6 text-center">
             <form action="{% url 'finalizar_pedido' %}" method="post">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-success">Revisar Pedido</button>
+                <button type="submit" class="btn btn-success btn-md">Revisar Pedido</button>
             </form>
         </div>
     </div>
