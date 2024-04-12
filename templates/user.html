@@ -1,27 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load bootstrap5 %}
-
-{% block title %}
-  Usuário
-{% endblock %}
-
+{% load django_bootstrap5 %}
+{% block title %} Usuário {% endblock %}
 {% block content %}
-
 {% block css %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% endblock %}
 
 <div class="container mt-4">
   <h2>Cadastrar</h2>
 </div>
 
-{% if success  %}
+{% if success %}
 <div class="success">
   <h5 class="text-center">Dados cadastros com sucesso!</h5>
-  <hr>
-  <p class="text-center" style="margin-bottom: 0;">
-    Fazer <a data-bs-toggle="modal" data-bs-target="#loginModal" style="cursor: pointer; color: #ee7214;">Login</a>
+  <hr />
+  <p class="text-center" style="margin-bottom: 0">
+    Fazer
+    <a data-bs-toggle="modal" data-bs-target="#loginModal" style="cursor: pointer; color: #ee7214">Login</a>
   </p>
 </div>
 {% endif %}
@@ -30,12 +26,8 @@
   <div class="row justify-content-md-center">
     <div class="row col-lg-4">
       <form action="" method="POST" id="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <button
-          type="submit"
-          class="btn btn-primary btn-block"
-          style="margin-bottom: 20px;">
+        {% csrf_token %} {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px">
           Efetuar Cadastro
         </button>
       </form>
@@ -56,10 +48,10 @@
           {% csrf_token %}
           <div class="input-field">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email">
-      
+            <input type="email" class="form-control" id="email" name="email" />
+
             <label for="password" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="senha" name="senha">
+            <input type="password" class="form-control" id="senha" name="senha" />
           </div>
         </div>
         <div class="modal-footer">
