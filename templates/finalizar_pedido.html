@@ -2,12 +2,12 @@
 {% block title %}Finalizar Pedido{% endblock %}
 {% block content %}
 <div class="container mt-4 mb-5">
-    <h3 class="text-muted">
-        <i class="fas fa-shopping-bag text-success"></i> 
+    <h3 class="text-muted text-center" style="font-size: 1.5rem;">
+        <i class="fas fa-shopping-bag text-success" style="font-size: 1.5rem;"></i> 
         Finalizar Pedido:
     </h3>
     <p class="mb-2 mt-4">
-        <strong class="text-primary h5">Cliente:</strong>
+        <strong class="text-muted h5">Cliente:</strong>
         {% if carrinhoproduto.carrinho.cliente %}
             <span class="text-success h5">{{ carrinhoproduto.carrinho.cliente.nome_completo }}</span>
         {% else %}
@@ -19,20 +19,19 @@
             <ul class="list-group list-group-flush">
                 {% for carrinhoproduto in carrinhoprodutos %}
                 <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <strong>Produto:</strong> {{ carrinhoproduto.produto.nome_produto }}
+                    <div class="row g-3 mb-3">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            
                             {% if carrinhoproduto.produto.imagem %}
-                                <img src="{{ carrinhoproduto.produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3 rounded" alt="{{ carrinhoproduto.produto.nome_produto }}" style="max-width: 80px; margin-bottom: -15px; border-radius: 8px;">
+                                <img src="{{ carrinhoproduto.produto.imagem.url }}" class="img-thumbnail border-0" alt="{{ carrinhoproduto.produto.nome_produto }}">
                             {% endif %}
                         </div>
-                        <div class="col-sm-2">
-                            <strong>Quantidade:</strong> {{ carrinhoproduto.quantidade }}
+                        <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-end">
+                            <p><strong>Produto:</strong> {{ carrinhoproduto.produto.nome_produto }}</p>
+                            <p><strong>Quantidade:</strong> {{ carrinhoproduto.quantidade }}</p>
+                            <p><strong>Preço:</strong> R$ {{ carrinhoproduto.produto.preco }}</p>
                         </div>
-                        <div class="col-sm-2">
-                            <strong>Preço:</strong> R$ {{ carrinhoproduto.produto.preco }}
-                        </div>
-                        <div class="col-md-3 text-end">
+                        <div class="col-md-2 align-self-end text-endd">
                             <form action="{% url 'deletar_item_carrinho' carrinhoproduto.id %}" method="post">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger">Remover</button>
