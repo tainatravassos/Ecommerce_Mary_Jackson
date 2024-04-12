@@ -131,11 +131,12 @@ def adicionar_produto_carrinho(request, produto_id):
     
     return redirect('carrinhoproduto')
 
-
 def finalizar_pedido(request):
-    carrinho_id = request.session.get('carrinho_id')
-    if carrinho_id:
-        carrinho = get_object_or_404(Carrinho, pk=carrinho_id)
-        carrinho_produtos = CarrinhoProduto.objects.filter(carrinho=carrinho)
-        return render(request, 'finalizar_pedido.html', {'carrinho': carrinho, 'carrinho_produtos': carrinho_produtos})
-    return redirect('carrinhoproduto')
+    carrinhoprodutos = CarrinhoProduto.objects.all()
+    total = sum(item.produto.preco * item.quantidade for item in carrinhoprodutos)
+    return render(request, 'finalizar_pedido.html', {'carrinhoprodutos': carrinhoprodutos, 'total': total})
+
+def finalizado(request):
+    carrinhoprodutos = CarrinhoProduto.objects.all()
+    carrinhoprodutos.delete()
+    return render(request, 'finalizado.html')

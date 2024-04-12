@@ -2,50 +2,49 @@
 {% block title %}Carrinho de Compras{% endblock %}
 {% block content %}
 
-<div class="container">
-    <h3>Produtos no Carrinho</h3>
-    <div class="card">
-        <ul class="list-group list-group-flush">
-            {% for carrinhoproduto in carrinhoprodutos %}
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <strong>Produto:</strong> {{ carrinhoproduto.produto.nome_produto }}
-                            <img
-                                src="{{ carrinhoproduto.produto.imagem.url }}"
-                                class="card-img-top mx-auto d-block mb-3"
-                                alt="{{ carrinhoproduto.produto.nome_produto }}"
-                                style="max-width: 100px; margin-bottom: -15px"
-                            />
-                        </div>
-                        <div class="col-sm-4">
-                            <strong>Carrinho:</strong> {{ carrinhoproduto.carrinho.id }}
-                        </div>
-                        <div class="col-md-4">
-                            <strong>Cliente:</strong>
-                            {% if carrinhoproduto.carrinho.cliente %}
-                                {{ carrinhoproduto.carrinho.cliente.nome_completo }}
-                            {% else %}
-                                Mary jackon
-                            {% endif %}
-                            <br>
-                            <strong>Preço:</strong> R$ {{ carrinhoproduto.produto.preco }}
-                            <br>
-                            <strong>Quantidade:</strong> {{ carrinhoproduto.quantidade }}
-                            <form action="{% url 'deletar_item_carrinho' carrinhoproduto.id %}" method="post" class="mt-3">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                            <a href="{% url 'finalizar_pedido' %}" class="btn btn-primary mt-3">Finalizar Pedido</a>
-
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 class="text-muted"><i class="fas fa-shopping-cart"></i> Meu Carrinho</h2>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    {% for carrinhoproduto in carrinhoprodutos %}
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center">
+                                <img src="{{ carrinhoproduto.produto.imagem.url }}" class="img-fluid" alt="{{ carrinhoproduto.produto.nome_produto }}" style="max-width: 100px;">
+                            </div>
+                            <div class="col-md-6">
+                                <h5>{{ carrinhoproduto.produto.nome_produto }}</h5>
+                                <p><strong>Preço:</strong> R$ {{ carrinhoproduto.produto.preco }}</p>
+                                <p><strong>Quantidade:</strong> {{ carrinhoproduto.quantidade }}</p>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <form action="{% url 'deletar_item_carrinho' carrinhoproduto.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Remover</button>
+                                </form>
+                            </div>
                             
                         </div>
-                        
-                </li>
-            {% endfor %}
-        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12 text-center">
+            <form action="{% url 'finalizar_pedido' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Revisar Pedido</button>
+            </form>
+        </div>
     </div>
 </div>
-
 
 {% endblock %}
