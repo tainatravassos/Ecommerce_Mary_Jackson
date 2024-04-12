@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Finalizar Pedido{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+    <h3>Detalhes do Pedido</h3>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Produtos</h5>
+            <strong>Cliente:</strong>
+            {% if carrinho.cliente %}
+                {{ carrinho.cliente.nome_completo }}
+            {% else %}
+                Mary Jackson
+            {% endif %}
+            <ul class="list-group mt-3">
+                {% for carrinhoproduto in carrinhoprodutos %}
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong>{{ carrinhoproduto.produto.nome_produto }}</strong>
+                            <span>Quantidade: {{ carrinhoproduto.quantidade }}</span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="card-text mt-3">Total: R$ {{ carrinho.total }}</p>
+            <p class="card-text">Pedido finalizado com sucesso!</p>
+        </div>
+    </div>
+    <a href="{% url 'finalizar_pedido' %}" class="btn btn-primary mt-3">Pagar</a>
+</div>
+
+{% endblock %}

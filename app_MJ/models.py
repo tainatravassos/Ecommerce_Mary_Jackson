@@ -67,6 +67,24 @@ class CarrinhoProduto(models.Model):
     def __str__(self):
         return f"Carrinho: {self.carrinho.id} - CarrinhoProduto: {self.id} - Produto: {self.produto.nome_produto}"
 
+class Total (models.Model):
+    total = models.DecimalField(max_digits=5, decimal_places=2)
 
+    def __str__(self):
+        return self.total
 
+class pagamento(models.Model):
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE)
+    total = models.ForeignKey(Total, on_delete=models.CASCADE)
+    data_pedido = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return f"Cliente: {self.cliente.nome_completo} - Carrinho: {self.carrinho.id} - Total: {self.total.total}"
+    
+class editar_cliente(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ['nome_completo', 'endereco', 'cidade', 'estado', 'telefone', 'email', 'senha']
+        
 

@@ -31,11 +31,14 @@
                             <br>
                             <strong>Preço:</strong> R$ {{ carrinhoproduto.produto.preco }}
                             <br>
-                            <button type="button" class="btn btn-primary btn-sm mt-sm-2">Finalizar pedido</button>
+                            <strong>Quantidade:</strong> {{ carrinhoproduto.quantidade }}
                             <form action="{% url 'deletar_item_carrinho' carrinhoproduto.id %}" method="post" class="mt-3">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                             </form>
+                            <a href="{% url 'finalizar_pedido' %}" class="btn btn-primary mt-3">Finalizar Pedido</a>
+
+                            
                         </div>
                         
                 </li>
@@ -43,5 +46,6 @@
         </ul>
     </div>
 </div>
+
 
 {% endblock %}
