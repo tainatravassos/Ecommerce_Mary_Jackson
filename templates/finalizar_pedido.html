@@ -2,32 +2,29 @@
 {% block title %}Finalizar Pedido{% endblock %}
 {% block content %}
 
-<div class="container mt-4">
-    <h3>Detalhes do Pedido</h3>
-    <div class="card mt-3">
+<div class="container mb-5">
+    <h5 class="card-title text-muted mb-2 mt-2">Produtos: </h5>
+    <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Produtos</h5>
-            <strong>Cliente:</strong>
-            {% if carrinho.cliente %}
-                {{ carrinho.cliente.nome_completo }}
-            {% else %}
-                Mary Jackson
-            {% endif %}
-            <ul class="list-group mt-3">
+            <ul class="list-group list-group-flush">
                 {% for carrinhoproduto in carrinhoprodutos %}
                     <li class="list-group-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <strong>{{ carrinhoproduto.produto.nome_produto }}</strong>
-                            <span>Quantidade: {{ carrinhoproduto.quantidade }}</span>
-                        </div>
+                        <strong>Cliente:</strong>
+                        {% if carrinhoproduto.carrinho.cliente %}
+                            {{ carrinhoproduto.carrinho.cliente.nome_completo }}
+                        {% else %}
+                            Mary Jackson
+                        {% endif %}
+                      
+                        <strong>{{ carrinhoproduto.produto.nome_produto }}</strong>
+                        <span class="float-right">Quantidade: {{ carrinhoproduto.quantidade }}</span>
                     </li>
                 {% endfor %}
             </ul>
-            <p class="card-text mt-3">Total: R$ {{ carrinho.total }}</p>
-            <p class="card-text">Pedido finalizado com sucesso!</p>
+            <p class="card-text text-center mt-3 text-light bg-secondary">Total: R$ {{ carrinho.total }}</p>
+            <p class="card-text text-center mb-6 text-bg-success">Pedido finalizado com sucesso!</p>
         </div>
     </div>
-    <a href="{% url 'finalizar_pedido' %}" class="btn btn-primary mt-3">Pagar</a>
 </div>
 
 {% endblock %}

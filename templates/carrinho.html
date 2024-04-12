@@ -10,7 +10,14 @@
             <div class="card-body text-center border-bottom-0">
                 <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3" alt="{{ produto.nome_produto }}" style="max-width: 200px; margin-bottom: -15px" />
                 <p class="card-text d-none">{{ produto.descricao }}</p>
-                <a href="{% url 'carrinho' produto.id %}" class="btn btn-success" style="text-decoration: none;">Item adicionado</a>
+                {% if produto_adicionado %}
+                <p class="text-success">Item adicionado ao carrinho!</p>
+                {% else %}
+                <form action="{% url 'carrinho' produto.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success" style="text-decoration: none;">Adicionar ao carrinho</button>
+                </form>
+                {% endif %}
            </div>
         </div>
     </div>

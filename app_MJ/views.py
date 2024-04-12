@@ -105,7 +105,7 @@ def carrinho(request, produto_id):
     else:
         carro_obj = Carrinho.objects.create(total=0)
         request.session['carro_id'] = carro_obj.id
-    return render(request, 'carrinho.html', {'produto': produto, 'carrinho': carro_obj})
+    return render(request, 'carrinho.html', {'produto': produto, 'carro_obj': carro_obj, 'carro_id': carro_id, 'carrinho': 'active'})
 
 
 def carrinhoproduto(request):
@@ -121,18 +121,17 @@ def deletar_item_carrinho(request, carrinhoproduto_id):
 def adicionar_produto_carrinho(request, produto_id):
     produto = get_object_or_404(Produto, pk=produto_id)
     
-    if 'carrinho_id' in request.session:
-        carrinho_id = request.session['carrinho_id']
-        carrinho = get_object_or_404(Carrinho, pk=carrinho_id)
+    if 'carrinho' in request.session:
+        carrinho = request.session['carrinho']
+        carrinho = Carrinho.objects.get(pk=carrinho)
     else:
         carrinho = Carrinho.objects.create()
         request.session['carrinho_id'] = carrinho.id
 
-    quantidade = 1  
-    preco = produto.preco  
-    CarrinhoProduto.objects.create(carrinho=carrinho, produto=produto, quantidade=quantidade, preco=preco)
+    CarrinhoProduto.objects.create(carrinho=carrinho, produto=produto, quantidade=1, preco=produto.preco)
     
     return redirect('carrinhoproduto')
+
 
 def finalizar_pedido(request):
     total = 0
