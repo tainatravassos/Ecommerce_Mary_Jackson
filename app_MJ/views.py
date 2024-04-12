@@ -5,7 +5,6 @@ from django.contrib.auth import logout
 from app_MJ.forms import ClienteForm
 from django.db.models import Q
 from django.shortcuts import redirect
-from django.contrib import messages
 from app_MJ.models import *
 
 
@@ -134,13 +133,9 @@ def adicionar_produto_carrinho(request, produto_id):
 
 
 def finalizar_pedido(request):
-    total = 0
     carrinho_id = request.session.get('carrinho_id')
-    carrinho = get_object_or_404(Carrinho, pk=carrinho_id)
-    carrinhoprodutos = CarrinhoProduto.objects.filter(carrinho=carrinho)
-    
-    for carrinhoproduto in carrinhoprodutos:
-        total += carrinhoproduto.preco * carrinhoproduto.quantidade
-    carrinho.total = total
-    carrinho.save()
-    return render(request, 'finalizar_pedido.html', {'carrinho': carrinho, 'carrinhoprodutos': carrinhoprodutos})
+    if carrinho_id:
+        carrinho = get_object_or_404(Carrinho, pk=carrinho_id)
+        carrinho_produtos = CarrinhoProduto.objects.filter(carrinho=carrinho)
+        return render(request, 'finalizar_pedido.html', {'carrinho': carrinho, 'carrinho_produtos': carrinho_produtos})
+    return redirect('carrinhoproduto')

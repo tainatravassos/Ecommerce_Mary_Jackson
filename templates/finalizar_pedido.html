@@ -6,22 +6,41 @@
     <h5 class="card-title text-muted mb-2 mt-2">Produtos: </h5>
     <div class="card">
         <div class="card-body">
-            <ul class="list-group list-group-flush">
-                {% for carrinhoproduto in carrinhoprodutos %}
-                    <li class="list-group-item">
-                        <strong>Cliente:</strong>
-                        {% if carrinhoproduto.carrinho.cliente %}
-                            {{ carrinhoproduto.carrinho.cliente.nome_completo }}
-                        {% else %}
-                            Mary Jackson
-                        {% endif %}
-                      
-                        <strong>{{ carrinhoproduto.produto.nome_produto }}</strong>
-                        <span class="float-right">Quantidade: {{ carrinhoproduto.quantidade }}</span>
-                    </li>
-                {% endfor %}
-            </ul>
-            <p class="card-text text-center mt-3 text-light bg-secondary">Total: R$ {{ carrinho.total }}</p>
+            <form action="{% url 'finalizar_pedido' %}" method="post">
+                {% csrf_token %}
+                <ul class="list-group list-group-flush">
+                    {% for carrinhoproduto in carrinho_produtos %}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <strong>Cliente:</strong>
+                                    {% if carrinho.cliente %}
+                                        {{ carrinho.cliente.nome_completo }}
+                                    {% else %}
+                                        Mary Jackson
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-4">
+                                    <strong>Produto:</strong> {{ carrinhoproduto.produto.nome_produto }}
+                                    <br>
+                                    <strong>Preço:</strong> R$ {{ carrinhoproduto.produto.preco }}
+                                    <br>
+                                    <strong>Quantidade:</strong> {{ carrinhoproduto.quantidade }}
+                                </div>
+                                <div class="col-md-4">
+                                    <img
+                                        src="{{ carrinhoproduto.produto.imagem.url }}"
+                                        class="card-img-top mx-auto d-block mb-3"
+                                        alt="{{ carrinhoproduto.produto.nome_produto }}"
+                                        style="max-width: 100px; margin-bottom: -15px"
+                                    />
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </form>
+            <p class="card-text text-center mt-3 text-light bg-secondary">Total: R$ {{ total }}</p>
             <p class="card-text text-center mb-6 text-bg-success">Pedido finalizado com sucesso!</p>
         </div>
     </div>
