@@ -6,7 +6,6 @@
 *.log
 *.pot
 *.pyc
-__pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -184,7 +183,7 @@ cython_debug/
 *.log
 *.pot
 *.pyc
-__pycache__/
+**/__pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -199,7 +198,6 @@ db.sqlite3-journal
 *.py[cod]
 *$py.class
 *.pyc
-__pycache__/
 # C extensions
 *.so
 
@@ -353,6 +351,6 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
->>>>>>> f4283ce128ccf5c5e05df8d99cf860651943151b
 #Config
 config.toml
+.vscode/
