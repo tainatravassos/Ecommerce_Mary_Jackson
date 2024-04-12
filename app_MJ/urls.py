@@ -14,6 +14,7 @@ urlpatterns = [
     path('logout/', logout_usuario, name='logout'),
     path('carrinho/<int:produto_id>', carrinho, name='carrinho'), 
     path('carrinhoproduto/', carrinhoproduto, name='carrinhoproduto'),
-    path('deletar_item_carrinho/<int:carrinhoproduto_id>/', deletar_item_carrinho, name='deletar_item_carrinho')
+    path('deletar_item_carrinho/<int:carrinhoproduto_id>/', deletar_item_carrinho, name='deletar_item_carrinho'),
+    path('adicionar_produto_carrinho/<int:produto_id>/', adicionar_produto_carrinho, name='adicionar_produto_carrinho'),
     
 ]

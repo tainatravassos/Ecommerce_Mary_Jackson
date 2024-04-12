@@ -27,7 +27,10 @@
                             <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-outline-success btn-sm text-decoration-underline">Detalhes</a>
                         </div>
                         <div>
-                            <a href="{% url 'carrinho' produto.id %}" class="btn btn-success btn-sm text-decoration-underline">Comprar</a>
+                            <form action="{% url 'adicionar_produto_carrinho' produto.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-success btn-sm">Comprar</button>
+                            </form>
                         </div>
                     </div>
                     

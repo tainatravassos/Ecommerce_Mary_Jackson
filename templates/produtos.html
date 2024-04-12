@@ -2,47 +2,36 @@
 {% block title %}Resultados da Busca{% endblock %}
 {% block content %}
 
-<style>
-.produto-link,
-a {
-  color: black;
-  text-decoration: none; 
-  cursor: pointer; 
-}
-
-.produto-link:hover,
-a:hover {
-  text-decoration: underline;
-}
-</style>
-
-<div class="container">
-    <h3 class="text-muted" style="margin-bottom: 30px; margin-top: 20px; text-align: center; font-size: 24px; font-weight: 600;">Produtos</h3>
+<div class="container ">
+    <h3 class="text-muted text-center mb-4 mt-4">Nossos Produtos</h3>
 
     {% if produtos %}
     <div class="row justify-content-center">
         {% for produto in produtos %}
-        <div class="col-md-4 mb-4 mt-2 section">
-            <div class="card-body text-center border-bottom-0">
-                <img
-                    src="{{ produto.imagem.url }}"
-                    class="card-img-top mx-auto d-block mb-3"
-                    alt="{{ produto.nome_produto }}"
-                    style="max-width: 200px; margin-bottom: -15px"
-                />
-                <p class="card-title text-center mb-4 mt-2" style="font-size: 16px">
-                    <a style="text-decoration: none; color:#1d1d1dad" href="{% url 'produto_detalhe' produto.id %}">{{ produto.nome_produto }}</a>
-                </p>
-                <p class="card-text d-none">{{ produto.descricao }}</p>
-                <p class="card-text"><strong class="font-size-lg" style="font-size: 20px">R$ {{ produto.preco }}</strong></p>
-                    <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-success" style="text-decoration: none;">Adicionar ao carrinho</a>
-
+        <div class="col-md-3 mb-5 mt-2">
+            <div class="card bg-transparent border-0">
+                <div class="card-body text-center">
+                    <h4 class="card-title text-muted">{{ produto.nome_produto }}</h4>
+                    <img src="{{ produto.imagem.url }}" class="card-img-top mx-auto d-block mb-3 rounded" alt="{{ produto.nome_produto }}" style="max-width: 170px; margin-bottom: -15px; border-radius: 8px;">
+                    <p class="card-text"><strong class="font-size-lg">Preço: R$ {{ produto.preco }}</strong></p>
+                </div>                            
+                <div class="card-footer text-center d-flex justify-content-center bg-transparent border-0 ">
+                    <div class="me-4">
+                        <a href="{% url 'produto_detalhe' produto.id %}" class="btn btn-outline-success btn-sm text-decoration-underline">Detalhes</a>
+                    </div>
+                    <div>
+                        <form action="{% url 'adicionar_produto_carrinho' produto.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success btn-sm">Comprar</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
     {% else %}
-    <p>Nenhum produto encontrado.</p>
+    <p class="no-product text-center">Nenhum produto encontrado.</p>
     {% endif %}
 </div>
 

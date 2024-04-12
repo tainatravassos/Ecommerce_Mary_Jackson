@@ -115,3 +115,19 @@ def deletar_item_carrinho(request, carrinhoproduto_id):
     carrinhoproduto = get_object_or_404(CarrinhoProduto, pk=carrinhoproduto_id)
     carrinhoproduto.delete()
     return redirect('carrinhoproduto')
+
+def adicionar_produto_carrinho(request, produto_id):
+    produto = get_object_or_404(Produto, pk=produto_id)
+    
+    if 'carrinho_id' in request.session:
+        carrinho_id = request.session['carrinho_id']
+        carrinho = get_object_or_404(Carrinho, pk=carrinho_id)
+    else:
+        carrinho = Carrinho.objects.create()
+        request.session['carrinho_id'] = carrinho.id
+
+    quantidade = 1  
+    preco = produto.preco  
+    CarrinhoProduto.objects.create(carrinho=carrinho, produto=produto, quantidade=quantidade, preco=preco)
+    
+    return redirect('carrinhoproduto')
