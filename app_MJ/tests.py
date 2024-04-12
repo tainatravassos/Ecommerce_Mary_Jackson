@@ -1,4 +1,8 @@
-from django.test import TestCase
+"""Testes unitários do app_MJ
+"""
+
+from django.test import TestCase, Client
+from django.urls import reverse
 from app_MJ.models import Cliente, Categoria, Produto, Carrinho, CarrinhoProduto
 
 
@@ -122,3 +126,31 @@ class CarrinhoProdutoModelTest(TestCase):
             str(carrinho_produto),
             f"Carrinho: {carrinho_produto.carrinho.id} - CarrinhoProduto: {carrinho_produto.id} - Produto: {carrinho_produto.produto.nome_produto}",
         )
+
+
+class HomeViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.produto = Produto.objects.create(
+            nome_produto="Smartphone",
+            categoria=Categoria.objects.create(nome="Electronics", slug="electronics"),
+            descricao="A high-quality smartphone.",
+            quantidade=10,
+            preco=99.99,
+        )
+        self.carrinho = Carrinho.objects.create()
+
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse("home"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_lists_all_products(self):
+        response = self.client.get(reverse("home"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue("produtos" in response.context)
+        self.assertEqual(len(response.context["produtos"]), 1)
