@@ -14,7 +14,6 @@ Este é o projeto final do Bootcamp de Back-End que tem por objetivo consolidar 
 <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" style="border-radius:4px"/>
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" style="border-radius:4px"/>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" style="border-radius:4px"/>
-<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" style="border-radius:4px"/>
 </div>
 
 #### O projeto foi realizado pela Squad Mary Jackson:
@@ -65,7 +64,7 @@ Este é o projeto final do Bootcamp de Back-End que tem por objetivo consolidar 
 
 #### 5. Deploy
 
-- O projeto foi publicado utilizando o Heroku.
+- O projeto foi publicado utilizando o PythonAnywhere.
 
 ### 💻 Como rodar o projeto na sua máquina:
 
